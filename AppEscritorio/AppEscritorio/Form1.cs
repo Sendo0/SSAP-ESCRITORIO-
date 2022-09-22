@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OracleClient;
 using System.Runtime.InteropServices;
+using Controlador;
+using Modelo;
+
 namespace AppEscritorio
 {
     public partial class formLogin : Form
@@ -18,58 +21,7 @@ namespace AppEscritorio
             InitializeComponent();
         }
 
-        private void formLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelPass_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD=123456;USER ID = SSAP");
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            conexion.Open();
-            OracleCommand comando = new OracleCommand("SELECT * FROM USUARIO WHERE ID_USUARIO = :ID_USUARIO AND CONTRASEÑA = :CONTRASEÑA AND TIPO = :TIPO", conexion);
-            comando.Parameters.AddWithValue(":ID_USUARIO", txtUsuario.Text);
-            comando.Parameters.AddWithValue(":CONTRASEÑA", txtPass.Text.ToUpper());
-            comando.Parameters.AddWithValue(":TIPO", "ADMINISTRADOR");
-            OracleDataReader lector = comando.ExecuteReader();
-
-            if (lector.Read())
-            {
-                
-                Form menu = new Menu();
-                menu.Show();
-                //formLogin formulario = new formLogin();
-                conexion.Close();
-                //formulario.Show();
-                this.Hide();
-
-            }
-            else
-            {
-                MessageBox.Show("No se encontro");
-            }
-            conexion.Close();
-        }
-
-        private void txtPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        //Funciones de Ventana
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -95,21 +47,6 @@ namespace AppEscritorio
         {
             this.WindowState = FormWindowState.Minimized;
 
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -141,44 +78,35 @@ namespace AppEscritorio
             txtPass.ForeColor = Color.Black;
         }
 
-        private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        //Funciones Login
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-
-        }
-
-     
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            conexion.Open();
-            OracleCommand comando = new OracleCommand("SELECT * FROM USUARIO WHERE ID_USUARIO = :ID_USUARIO AND CONTRASEÑA = :CONTRASEÑA AND TIPO = :TIPO", conexion);
-            comando.Parameters.AddWithValue(":ID_USUARIO", txtUsuario.Text);
-            comando.Parameters.AddWithValue(":CONTRASEÑA", txtPass.Text.ToUpper());
-            comando.Parameters.AddWithValue(":TIPO", "ADMINISTRADOR");
-            OracleDataReader lector = comando.ExecuteReader();
-
-            if (lector.Read())
+            if (Ctrl.login(txtUsuario.Text, txtPass.Text) != null)
             {
-
                 Form menu = new Menu();
                 menu.Show();
-                //formLogin formulario = new formLogin();
-                conexion.Close();
-                //formulario.Show();
                 this.Hide();
-
             }
             else
             {
                 MessageBox.Show("No se encontro");
             }
-            conexion.Close();
         }
 
-        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
-
+            if (Ctrl.login(txtUsuario.Text, txtPass.Text) != null){
+                Form menu = new Menu();
+                menu.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No se encontro");
+            }
         }
+
+        //No se para que es esto
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -188,6 +116,63 @@ namespace AppEscritorio
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        //Eventos Vacíos
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

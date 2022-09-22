@@ -27,21 +27,10 @@ namespace AppEscritorio
         {
             try
             {
-                txtIdUsuario.Text = txtIdUsuario.Text.ToUpper();
-                txtRutCliente.Text = txtRutCliente.Text.ToUpper();
-                txtNomEmpresa.Text = txtNomEmpresa.Text.ToUpper();
-                txtRubroEm.Text = txtRubroEm.Text.ToUpper();
-                txtCantTra.Text = txtCantTra.Text.ToUpper();
-                txtEstado.Text = txtEstado.Text.ToUpper();
+                
                 conexion.Open();
                 OracleCommand comando = new OracleCommand("insertarCliente", conexion);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("id_usu", OracleType.Int32).Value = txtIdUsuario.Text;
-                comando.Parameters.Add("rutCli", OracleType.VarChar).Value = txtRutCliente.Text;
-                comando.Parameters.Add("nomEmpre", OracleType.VarChar).Value = txtNomEmpresa.Text;
-                comando.Parameters.Add("rubroEmpre", OracleType.VarChar).Value = txtRubroEm.Text;
-                comando.Parameters.Add("cant", OracleType.VarChar).Value = txtCantTra.Text;
-                comando.Parameters.Add("estado", OracleType.Int32).Value = txtEstado.Text;
                 comando.ExecuteNonQuery();
 
 

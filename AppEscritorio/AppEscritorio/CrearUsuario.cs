@@ -117,7 +117,6 @@ namespace AppEscritorio
             OracleDataReader registro1 = comando.ExecuteReader();
             while (registro.Read())
             {
-                cbProfesionales.Items.Add(registro["RUT_PROFESIONAL"].ToString());
 
             }
             registro1.Close();
@@ -128,7 +127,6 @@ namespace AppEscritorio
             OracleDataReader registro2 = comando.ExecuteReader();
             while (registro.Read())
             {
-                cbClientes.Items.Add(registro["RUT_CLIENTE"].ToString());
 
             }
             registro2.Close();

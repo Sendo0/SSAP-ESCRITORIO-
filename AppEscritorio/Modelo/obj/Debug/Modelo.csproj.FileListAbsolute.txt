@@ -1,0 +1,8 @@
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\bin\Debug\Modelo.dll
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\obj\Debug\Modelo.dll
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Modelo\obj\Debug\Modelo.pdb

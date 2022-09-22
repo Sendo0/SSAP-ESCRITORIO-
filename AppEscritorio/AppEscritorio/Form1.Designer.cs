@@ -46,7 +46,6 @@ namespace AppEscritorio
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnEntrar = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -200,7 +199,6 @@ namespace AppEscritorio
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.Honeydew;
             this.PanelContenedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelContenedor.Controls.Add(this.linkLabel1);
             this.PanelContenedor.Controls.Add(this.pictureBox6);
             this.PanelContenedor.Controls.Add(this.pictureBox5);
             this.PanelContenedor.Controls.Add(this.pictureBox4);
@@ -257,16 +255,6 @@ namespace AppEscritorio
             this.btnEntrar.TabStop = false;
             this.btnEntrar.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(912, 413);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(179, 18);
-            this.linkLabel1.TabIndex = 10;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Olvidaste tu contraseña?";
-            // 
             // formLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -319,7 +307,6 @@ namespace AppEscritorio
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
