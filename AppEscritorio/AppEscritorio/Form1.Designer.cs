@@ -32,7 +32,6 @@ namespace AppEscritorio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -47,6 +46,7 @@ namespace AppEscritorio
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnEntrar = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -93,20 +93,6 @@ namespace AppEscritorio
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
-            // 
-            // cbTipo
-            // 
-            this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Items.AddRange(new object[] {
-            "ADMINISTRADOR"});
-            this.cbTipo.Location = new System.Drawing.Point(863, 454);
-            this.cbTipo.Margin = new System.Windows.Forms.Padding(4);
-            this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(289, 26);
-            this.cbTipo.TabIndex = 5;
-            this.cbTipo.SelectedIndexChanged += new System.EventHandler(this.cbTipo_SelectedIndexChanged);
-            this.cbTipo.Enter += new System.EventHandler(this.cbTipo_Enter);
-            this.cbTipo.Leave += new System.EventHandler(this.cbTipo_Leave);
             // 
             // BarraTitulo
             // 
@@ -190,9 +176,9 @@ namespace AppEscritorio
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(176, 22);
+            this.pictureBox2.Location = new System.Drawing.Point(236, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(268, 171);
+            this.pictureBox2.Size = new System.Drawing.Size(221, 171);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -214,12 +200,12 @@ namespace AppEscritorio
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.Honeydew;
             this.PanelContenedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelContenedor.Controls.Add(this.linkLabel1);
             this.PanelContenedor.Controls.Add(this.pictureBox6);
             this.PanelContenedor.Controls.Add(this.pictureBox5);
             this.PanelContenedor.Controls.Add(this.pictureBox4);
             this.PanelContenedor.Controls.Add(this.btnEntrar);
             this.PanelContenedor.Controls.Add(this.txtUsuario);
-            this.PanelContenedor.Controls.Add(this.cbTipo);
             this.PanelContenedor.Controls.Add(this.txtPass);
             this.PanelContenedor.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -263,13 +249,23 @@ namespace AppEscritorio
             // 
             this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnEntrar.Image = ((System.Drawing.Image)(resources.GetObject("btnEntrar.Image")));
-            this.btnEntrar.Location = new System.Drawing.Point(939, 503);
+            this.btnEntrar.Location = new System.Drawing.Point(932, 505);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(122, 70);
             this.btnEntrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnEntrar.TabIndex = 6;
             this.btnEntrar.TabStop = false;
             this.btnEntrar.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(912, 413);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(179, 18);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "¿Olvidaste tu contraseña?";
             // 
             // formLogin
             // 
@@ -309,7 +305,6 @@ namespace AppEscritorio
         #endregion
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.Panel MenuVerificacion;
         private System.Windows.Forms.PictureBox btnMaximizar;
@@ -324,6 +319,7 @@ namespace AppEscritorio
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

@@ -43,6 +43,26 @@ namespace AppEscritorio
                 comando.Parameters.Add("cant", OracleType.VarChar).Value = txtCantTra.Text;
                 comando.Parameters.Add("estado", OracleType.Int32).Value = txtEstado.Text;
                 comando.ExecuteNonQuery();
+
+
+
+
+
+                txtCosto.Text = txtCosto.Text.ToUpper();
+                dtFirma.Text = dtFirma.Text.ToUpper();
+                cbClientes.Text = cbClientes.Text.ToUpper();
+                cbProfesionales.Text = cbProfesionales.Text.ToUpper();
+                conexion.Open();
+                OracleCommand comando1 = new OracleCommand("insertarUsuario", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comando.Parameters.Add("costo", OracleType.Int32).Value = txtCosto.Text;
+                comando.Parameters.Add("fecha", OracleType.VarChar).Value = dtFirma.Text;
+                comando.Parameters.Add("rutCli", OracleType.VarChar).Value = cbClientes.Text;
+                comando.Parameters.Add("rutPro", OracleType.VarChar).Value = cbProfesionales.Text;
+                comando.ExecuteNonQuery();
+
+
                 MessageBox.Show("Usuario Cliente Insertado");
                 this.Hide();
 
@@ -57,6 +77,48 @@ namespace AppEscritorio
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Form crear = new Menu();
+            crear.Show();
+            this.Hide();
+        }
+
+        private void CrearCliente_Load(object sender, EventArgs e)
+        {
+            OracleCommand comando  = new OracleCommand("SELECT ID_USUARIO FROM USUARIO WHERE TIPO = 'CLIENTE'", conexion);
+            conexion.Open();
+            OracleDataReader registro = comando.ExecuteReader();
+            while (registro.Read())
+            {
+                cbIdcliente.Items.Add(registro["ID_USUARIO"].ToString());
+
+            }
+            registro.Close();
+
+
+            OracleCommand comando1 = new OracleCommand("SELECT RUT_PROFESIONAL FROM PROFESIONALES", conexion);
+            conexion.Open();
+            OracleDataReader registro1 = comando1.ExecuteReader();
+            while (registro1.Read())
+            {
+                cbProfesionales.Items.Add(registro1["RUT_PROFESIONAL"].ToString());
+
+            }
+            registro1.Close();
+
+
+            OracleCommand comando2 = new OracleCommand("SELECT RUT_CLIENTE FROM CLIENTES", conexion);
+            conexion.Open();
+            OracleDataReader registro2 = comando1.ExecuteReader();
+            while (registro2.Read())
+            {
+                cbClientes.Items.Add(registro2["RUT_CLIENTE"].ToString());
+
+            }
+            registro2.Close();
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             Form crear = new Menu();
             crear.Show();

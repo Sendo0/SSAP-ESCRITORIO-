@@ -33,14 +33,14 @@ namespace AppEscritorio
 
         }
 
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD=1234;USER ID = BDD_LOCAL");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD=123456;USER ID = SSAP");
         private void btnLogin_Click(object sender, EventArgs e)
         {
             conexion.Open();
             OracleCommand comando = new OracleCommand("SELECT * FROM USUARIO WHERE ID_USUARIO = :ID_USUARIO AND CONTRASEÑA = :CONTRASEÑA AND TIPO = :TIPO", conexion);
             comando.Parameters.AddWithValue(":ID_USUARIO", txtUsuario.Text);
             comando.Parameters.AddWithValue(":CONTRASEÑA", txtPass.Text.ToUpper());
-            comando.Parameters.AddWithValue(":TIPO", cbTipo.Text);
+            comando.Parameters.AddWithValue(":TIPO", "ADMINISTRADOR");
             OracleDataReader lector = comando.ExecuteReader();
 
             if (lector.Read())
@@ -146,19 +146,7 @@ namespace AppEscritorio
 
         }
 
-        private void cbTipo_Leave(object sender, EventArgs e)
-        {
-            if (cbTipo.Text == "")
-                cbTipo.Text = "Tipo Trabajador";
-            cbTipo.ForeColor = Color.DarkGray;
-        }
-
-        private void cbTipo_Enter(object sender, EventArgs e)
-        {
-            if (cbTipo.Text == "Tipo Trabajador")
-                cbTipo.Text = null;
-            cbTipo.ForeColor = Color.Black;
-        }
+     
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -166,7 +154,7 @@ namespace AppEscritorio
             OracleCommand comando = new OracleCommand("SELECT * FROM USUARIO WHERE ID_USUARIO = :ID_USUARIO AND CONTRASEÑA = :CONTRASEÑA AND TIPO = :TIPO", conexion);
             comando.Parameters.AddWithValue(":ID_USUARIO", txtUsuario.Text);
             comando.Parameters.AddWithValue(":CONTRASEÑA", txtPass.Text.ToUpper());
-            comando.Parameters.AddWithValue(":TIPO", cbTipo.Text);
+            comando.Parameters.AddWithValue(":TIPO", "ADMINISTRADOR");
             OracleDataReader lector = comando.ExecuteReader();
 
             if (lector.Read())

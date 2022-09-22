@@ -30,7 +30,7 @@ namespace AppEscritorio
         {
 
         }
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD=1234;USER ID = BDD_LOCAL");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD=123456;USER ID = SSAP");
         private void button2_Click(object sender, EventArgs e)
         {
             conexion.Open();
@@ -259,6 +259,11 @@ namespace AppEscritorio
             Form crearCapa = new crearCapacitacion();
             crearCapa.Show();
             this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
