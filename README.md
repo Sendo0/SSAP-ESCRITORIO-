@@ -6,7 +6,7 @@ Dependencias:
 
 - Visual Studio 2022/2019
 
-- .Net Framework versión 4.2.1
+- .Net Framework versión 4.7.2
 
 Paquetes NuGet Modelo:
 
