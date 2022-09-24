@@ -255,6 +255,10 @@ namespace AppEscritorio
             this.btnEntrar.TabStop = false;
             this.btnEntrar.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // formLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);

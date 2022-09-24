@@ -38,7 +38,6 @@ C:\Users\Send0\source\repos\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.
 C:\Users\Send0\source\repos\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.exe
 C:\Users\Send0\source\repos\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.pdb
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.csproj.AssemblyReference.cache
-C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.csproj.SuggestedBindingRedirects.cache
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.ActualizarUsuario.resources
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.crearCapacitacion.resources
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.CrearCliente.resources
@@ -82,3 +81,4 @@ C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\bin
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\XamlC.stamp
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.csproj.CopyComplete
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.csproj.SuggestedBindingRedirects.cache

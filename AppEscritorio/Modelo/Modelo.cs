@@ -40,8 +40,48 @@ namespace Modelo
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("pass", OracleDbType.Varchar2).Value = contraseña;
             cmd.Parameters.Add("tipo", OracleDbType.Varchar2).Value = tipo;
-            cmd.Parameters.Add("id_comu", OracleDbType.Int16).Value = 1;
+            cmd.Parameters.Add("id_comu", OracleDbType.Int32).Value = id_comuna;
             cmd.Parameters.Add("direc", OracleDbType.Varchar2).Value = direccion;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void desactivar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTUALIZARUSUARIO", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usr", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("contraseña", OracleDbType.Varchar2).Value = contraseña;
+            cmd.Parameters.Add("tipo", OracleDbType.Varchar2).Value = tipo;
+            cmd.Parameters.Add("IdComuna", OracleDbType.Int32).Value = id_comuna;
+            cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
+            cmd.Parameters.Add("estado", OracleDbType.Int32).Value = 0;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void activar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTUALIZARUSUARIO", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usr", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("contraseña", OracleDbType.Varchar2).Value = contraseña;
+            cmd.Parameters.Add("tipo", OracleDbType.Varchar2).Value = tipo;
+            cmd.Parameters.Add("IdComuna", OracleDbType.Int32).Value = id_comuna;
+            cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
+            cmd.Parameters.Add("estado", OracleDbType.Int32).Value = 1;
 
             //Ejecutar comando
             conn.Open();
@@ -67,10 +107,10 @@ namespace Modelo
             da.Fill(dt);
             usuarios = (from fila in dt.AsEnumerable() select new Usuario
                         {
-                            id_usuario = Convert.ToInt16(fila["ID_USUARIO"]),
+                            id_usuario = Convert.ToInt32(fila["ID_USUARIO"]),
                             contraseña = Convert.ToString(fila["CONTRASEÑA"]),
                             tipo = Convert.ToString(fila["TIPO"]),
-                            id_comuna = Convert.ToInt16(fila["ID_COMUNA"]),
+                            id_comuna = Convert.ToInt32(fila["ID_COMUNA"]),
                             direccion = Convert.ToString(fila["DIRECCION"]),
                             estado = Convert.ToBoolean(fila["ESTADO"])
                         }).ToList();
@@ -86,7 +126,7 @@ namespace Modelo
             //Parámetros comando
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("idUsr", OracleDbType.Int16).Value = id;
+            cmd.Parameters.Add("idUsr", OracleDbType.Int32).Value = id;
 
             //Ejecución
             conn.Open();
@@ -94,7 +134,7 @@ namespace Modelo
             {
                 while (r.Read())
                 {
-                    Usuario usuario = new Usuario { id_usuario = r.GetInt16(0), contraseña = r.GetString(1), tipo = r.GetString(2), id_comuna = r.GetInt16(3), direccion = r.GetString(4), estado = r.GetBoolean(5) };
+                    Usuario usuario = new Usuario { id_usuario = r.GetInt32(0), contraseña = r.GetString(1), tipo = r.GetString(2), id_comuna = r.GetInt32(3), direccion = r.GetString(4), estado = r.GetBoolean(5) };
                     conn.Close();
                     return usuario;
                 }
@@ -116,7 +156,7 @@ namespace Modelo
 
             //Dar parámetros al comando
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("id_usu", OracleDbType.Int16).Value = id_usuario;
+            cmd.Parameters.Add("id_usu", OracleDbType.Int32).Value = id_usuario;
             cmd.Parameters.Add("rutAdm", OracleDbType.Varchar2).Value = rut;
             cmd.Parameters.Add("nombre", OracleDbType.Varchar2).Value = nombre;
 
@@ -144,7 +184,7 @@ namespace Modelo
             lista = (from fila in dt.AsEnumerable()
                         select new Administrador
                         {
-                            id_usuario = Convert.ToInt16(fila["ID_USUARIO"]),
+                            id_usuario = Convert.ToInt32(fila["ID_USUARIO"]),
                             rut = Convert.ToString(fila["RUT_ADMIN"]),
                             nombre = Convert.ToString(fila["NOMBRE"])
                         }).ToList();
@@ -168,7 +208,7 @@ namespace Modelo
             {
                 while (r.Read())
                 {
-                    Administrador administrador = new Administrador { id_usuario = r.GetInt16(0), rut = r.GetString(1), nombre = r.GetString(2)};
+                    Administrador administrador = new Administrador { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre = r.GetString(2)};
                     conn.Close();
                     return administrador;
                 }
@@ -184,7 +224,7 @@ namespace Modelo
             //Parámetros comando
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            cmd.Parameters.Add("idAdm", OracleDbType.Int16).Value = id;
+            cmd.Parameters.Add("idAdm", OracleDbType.Int32).Value = id;
 
             //Ejecución
             conn.Open();
@@ -192,12 +232,244 @@ namespace Modelo
             {
                 while (r.Read())
                 {
-                    Administrador administrador = new Administrador { id_usuario = r.GetInt16(0), rut = r.GetString(1), nombre = r.GetString(2) };
+                    Administrador administrador = new Administrador { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre = r.GetString(2) };
                     conn.Close();
                     return administrador;
                 }
             }
             return null;
+        }
+    }
+
+    public class Profesional
+    {
+        public int id_usuario { get; set; }
+        public String rut { get; set; }
+        public String nombre { get; set; }
+        public void guardar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("INSERTARPROFESIONAL", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usu", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("rutProf", OracleDbType.Varchar2).Value = rut;
+            cmd.Parameters.Add("nombre", OracleDbType.Varchar2).Value = nombre;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public static List<Profesional> todos()
+        {
+            //Definir Variables
+            List<Profesional> lista = new List<Profesional>();
+            DataTable dt = new DataTable();
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("SELECCIONARPROFESIONALES", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+            //Llenar Lista
+            conn.Open();
+            da.Fill(dt);
+            lista = (from fila in dt.AsEnumerable()
+                     select new Profesional
+                     {
+                         id_usuario = Convert.ToInt32(fila["ID_USUARIO"]),
+                         rut = Convert.ToString(fila["RUT_PROF"]),
+                         nombre = Convert.ToString(fila["NOMBRE"])
+                     }).ToList();
+            conn.Close();
+            return lista;
+        }
+        public static Profesional filtro_rut(String rut_prof = null)
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("PROFESIONAL_PORRUT", conn);
+
+            //Parámetros comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("rutPro", OracleDbType.Varchar2).Value = rut_prof;
+
+            //Ejecución
+            conn.Open();
+            using (OracleDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    Profesional profesional = new Profesional { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre = r.GetString(2) };
+                    conn.Close();
+                    return profesional;
+                }
+            }
+            return null;
+        }
+        public static Profesional filtro_id(int id)
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("PROFESIONAL_PORID", conn);
+
+            //Parámetros comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("idPro", OracleDbType.Int32).Value = id;
+
+            //Ejecución
+            conn.Open();
+            using (OracleDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    Profesional profesional = new Profesional{ id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre = r.GetString(2) };
+                    conn.Close();
+                    return profesional;
+                }
+            }
+            return null;
+        }
+    }
+
+    public class Cliente
+    {
+        public int id_usuario { get; set; }
+        public String rut { get; set; }
+        public String nombre_empresa { get; set; }
+        public String rubro_empresa { get; set; }
+        public int cant_trabajadores { get; set; }
+        public void guardar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("INSERTARCLIENTE", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usu", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("rutCli", OracleDbType.Varchar2).Value = rut;
+            cmd.Parameters.Add("nomEmpre", OracleDbType.Varchar2).Value = nombre_empresa;
+            cmd.Parameters.Add("rubroEmpre", OracleDbType.Varchar2).Value = rubro_empresa;
+            cmd.Parameters.Add("cant", OracleDbType.Int32).Value = cant_trabajadores;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public static List<Cliente> todos()
+        {
+            //Definir Variables
+            List<Cliente> lista = new List<Cliente>();
+            DataTable dt = new DataTable();
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("SELECCIONARCLIENTES", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+            //Llenar Lista
+            conn.Open();
+            da.Fill(dt);
+            lista = (from fila in dt.AsEnumerable()
+                     select new Cliente
+                     {
+                         id_usuario = Convert.ToInt32(fila["ID_USUARIO"]),
+                         rut = Convert.ToString(fila["RUT_CLIENTE"]),
+                         nombre_empresa = Convert.ToString(fila["NOMBRE_EMPRESA"]),
+                         rubro_empresa = Convert.ToString(fila["RUBRO_EMPRESA"]),
+                         cant_trabajadores = Convert.ToInt32(fila["CANT_TRABAJADORES"])
+                     }).ToList();
+            conn.Close();
+            return lista;
+        }
+        public static Cliente filtro_rut(String rut_cli = null)
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("CLIENTE_PORRUT", conn);
+
+            //Parámetros comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("rutCli", OracleDbType.Varchar2).Value = rut_cli;
+
+            //Ejecución
+            conn.Open();
+            using (OracleDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    Cliente cliente = new Cliente { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre_empresa = r.GetString(2), rubro_empresa = r.GetString(3), cant_trabajadores = r.GetInt32(4) };
+                    conn.Close();
+                    return cliente;
+                }
+            }
+            return null;
+        }
+        public static Cliente filtro_id(int id)
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("CLIENTE_PORID", conn);
+
+            //Parámetros comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("idCli", OracleDbType.Int32).Value = id;
+
+            //Ejecución
+            conn.Open();
+            using (OracleDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    Cliente cliente = new Cliente { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre_empresa = r.GetString(2), rubro_empresa = r.GetString(3), cant_trabajadores = r.GetInt32(4) };
+                    conn.Close();
+                    return cliente;
+                }
+            }
+            return null;
+        }
+    }
+
+    //--------------Modelos control Cliente--------------
+    
+    public class Contrato
+    {
+        public int id_contrato { get; set; }
+        public int costo_base { get; set; }
+        public DateTime fecha_firma { get; set; }
+        public DateTime ultimo_pago { get; set; }
+        public String CLIENTE_rut { get; set; }
+        public String PROFESIONAL_rut { get; set; }
+        public void guardar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("INSERTARCONTRATO", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("costo", OracleDbType.Int32).Value = costo_base;
+            cmd.Parameters.Add("fecha", OracleDbType.Date).Value = fecha_firma;
+            cmd.Parameters.Add("rutCli", OracleDbType.Varchar2).Value = CLIENTE_rut;
+            cmd.Parameters.Add("rutPro", OracleDbType.Varchar2).Value = PROFESIONAL_rut;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

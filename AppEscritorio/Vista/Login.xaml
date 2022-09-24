@@ -1,0 +1,29 @@
+﻿<mah:MetroWindow x:Class="Vista.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        Title="| Login" Height="450" Width="800" MaxHeight="450" MaxWidth="800" 
+        Background="AliceBlue" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Imgs/logo.png">
+    <Grid>
+        <Grid Background="#8079e5" Margin="0,0,307,0">
+            <Image Source="Imgs/logo.png" Margin="33,23,34,39"/>
+        </Grid>
+        <Image Stretch="Fill" Source="Imgs/5645309.png" Margin="538,28,0,0" HorizontalAlignment="Left" Width="206" Height="140" VerticalAlignment="Top" />
+        <Image Stretch="Fill" Margin="500,224,0,0" Source="Imgs/747981.png" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="38"/>
+        <Image Stretch="Fill" Margin="498,175,0,0" Source="Imgs/7589345.png" HorizontalAlignment="Left" Width="42" Height="44" VerticalAlignment="Top"/>
+
+        <TextBox Margin="545,184,0,0" TextWrapping="Wrap" Name="tbxRut" mah:TextBoxHelper.Watermark="12.345.678-9" FontFamily="MS Gothic" FontSize="14" HorizontalAlignment="Left" Width="193" Height="25" VerticalAlignment="Top" />
+        <PasswordBox x:Name="tbxPassword" Margin="545,228,0,0" mah:TextBoxHelper.Watermark="********" FontFamily="MS Gothic" FontSize="14" HorizontalAlignment="Left" Width="193" Height="26" VerticalAlignment="Top"/>
+        <Label x:Name="lblError" HorizontalAlignment="Left" Margin="498,272,0,0" VerticalAlignment="Top" Width="286" FontFamily="MS Gothic" FontSize="14" Foreground="Red" Height="26"/>
+        <Button x:Name="btnLogin1" HorizontalAlignment="Left" Margin="538,310,0,0" VerticalAlignment="Top" Height="82" Width="193" Background="{x:Null}" Click="funcion_loguear" BorderBrush="#FF8079E5">
+            <StackPanel Orientation="Horizontal" Width="139">
+                <Image x:Name="btnLogin" Source="Imgs/3329410.png" Width="65" Height="66"/>
+                <TextBlock Width="82" FontFamily="MS Gothic" FontSize="20" Height="22"><Run Text="  Login" Foreground="Black"/></TextBlock>
+            </StackPanel>
+        </Button>
+    </Grid>
+</mah:MetroWindow>
