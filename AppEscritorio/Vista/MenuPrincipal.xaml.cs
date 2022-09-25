@@ -71,7 +71,7 @@ namespace Vista
             recargarTablaUsuarios();
         }
 
-        private void recargarTablaUsuarios()
+        public void recargarTablaUsuarios()
         {
             gu_tblUsuarios.Children.Clear();
             foreach (Usuario usuario in Usuario.todos())

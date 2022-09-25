@@ -26,12 +26,43 @@ namespace Vista
     {
         MenuPrincipal menu;
         Usuario usuario;
+        Administrador administrador;
+        Profesional profesional;
+        Cliente cliente;
         public ModificarUsuario(MenuPrincipal menu_princ, int id_usuario)
         {
             InitializeComponent();
             menu = menu_princ;
             menu.IsEnabled = false;
             usuario = Usuario.filtro_id(id_usuario);
+
+            //Carga de datos
+            txbDireccion.Text = usuario.direccion;
+            if (usuario.tipo == "ADMINISTRADOR")
+            {
+                administrador = Administrador.filtro_id(id_usuario);
+                txbRut.Text = administrador.rut;
+                txbNombreAdministrador.Text = administrador.nombre;
+                cbxTipo.SelectedIndex = 2;
+            }
+            if (usuario.tipo == "PROFESIONAL")
+            {
+                profesional = Profesional.filtro_id(id_usuario);
+                txbRut.Text = profesional.rut;
+                txbNombreProfesional.Text = profesional.nombre;
+                cbxTipo.SelectedIndex = 1;
+            }
+            if (usuario.tipo == "CLIENTE")
+            {
+                cliente = Cliente.filtro_id(id_usuario);
+                txbRut.Text = cliente.rut;
+                txbNombreEmpresa.Text = cliente.nombre_empresa;
+                txbRubroEmpresa.Text = cliente.rubro_empresa;
+                txbCantidadTrabajadores.Text = cliente.cant_trabajadores.ToString();
+                cbxTipo.SelectedIndex = 0;
+            }
+
+            //Estilos y Boton cerrar
             Closing += accionCerrar;
             ThemeManager.Current.ChangeTheme(this, "Light.Purple");
         }
@@ -71,5 +102,33 @@ namespace Vista
         }
 
         //Back end
+
+        private void modificarUsuario(object sender, RoutedEventArgs e)
+        {
+            usuario.direccion = txbDireccion.Text;
+            usuario.contraseña = txbPassword.Password;
+            usuario.id_comuna = 1;
+            if (cbxTipo.SelectedIndex == 0)
+            {
+                cliente.nombre_empresa = txbNombreEmpresa.Text;
+                cliente.rubro_empresa = txbRubroEmpresa.Text;
+                cliente.cant_trabajadores = Int32.Parse(txbCantidadTrabajadores.Text);
+                Ctrl.modificarUsuario(usuario, cliente);
+            }
+            else if (cbxTipo.SelectedIndex == 1)
+            {
+                profesional.nombre = txbNombreProfesional.Text;
+                Ctrl.modificarUsuario(usuario, profesional);
+            }
+            else if (cbxTipo.SelectedIndex == 2)
+            {
+                administrador.nombre = txbNombreAdministrador.Text;
+                Ctrl.modificarUsuario(usuario, administrador);
+            }
+            menu.txtMensaje.Text = Ctrl.mensaje;
+            menu.recargarTablaUsuarios();
+            menu.IsEnabled = true;
+            this.Close();
+        }
     }
 }

@@ -110,6 +110,29 @@ namespace Controlador
             }
         }
 
+        //  Modificar Usuario
+
+        public static void modificarUsuario(Usuario usuario, Cliente cliente)
+        {
+            usuario.actualizar();
+            cliente.actualizar();
+            mensaje = "Usuario " + cliente.nombre_empresa + " actualizado.";
+        }
+
+        public static void modificarUsuario(Usuario usuario, Profesional profesional)
+        {
+            usuario.actualizar();
+            profesional.actualizar();
+            mensaje = "Usuario " + profesional.nombre + " actualizado";
+        }
+
+        public static void modificarUsuario(Usuario usuario, Administrador administrador)
+        {
+            usuario.actualizar();
+            administrador.actualizar();
+            mensaje = "Usuario " + administrador.nombre + " actualizado";
+        }
+
         // Habilitar/Deshabilitar Usuario
         public static void estadoUsuario(int id)
         {

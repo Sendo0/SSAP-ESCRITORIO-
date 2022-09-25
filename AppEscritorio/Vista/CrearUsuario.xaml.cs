@@ -99,6 +99,7 @@ namespace Vista
                 Ctrl.crearUsuario(nuevoUsr, nuevoAdm);
             }
             menu.txtMensaje.Text = Ctrl.mensaje;
+            menu.recargarTablaUsuarios();
             menu.IsEnabled = true;
             this.Close();
         }

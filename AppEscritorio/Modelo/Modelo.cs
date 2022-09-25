@@ -88,6 +88,26 @@ namespace Modelo
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+        public void actualizar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTUALIZARUSUARIO", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usr", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("contraseña", OracleDbType.Varchar2).Value = contraseña;
+            cmd.Parameters.Add("tipo", OracleDbType.Varchar2).Value = tipo;
+            cmd.Parameters.Add("IdComuna", OracleDbType.Int32).Value = id_comuna;
+            cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
+            cmd.Parameters.Add("estado", OracleDbType.Int32).Value = estado;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
         public static List<Usuario> todos(bool orden_id = false)
         {
             //Definir Variables
@@ -159,6 +179,23 @@ namespace Modelo
             cmd.Parameters.Add("id_usu", OracleDbType.Int32).Value = id_usuario;
             cmd.Parameters.Add("rutAdm", OracleDbType.Varchar2).Value = rut;
             cmd.Parameters.Add("nombre", OracleDbType.Varchar2).Value = nombre;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void actualizar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTUALIZARADMINISTRADOR", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usr", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("rut", OracleDbType.Varchar2).Value = rut;
+            cmd.Parameters.Add("nombre_adm", OracleDbType.Varchar2).Value = nombre;
 
             //Ejecutar comando
             conn.Open();
@@ -263,6 +300,24 @@ namespace Modelo
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+        public void actualizar()
+        {
+
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTUALIZARPROFESIONAL", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usr", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("rut", OracleDbType.Varchar2).Value = rut;
+            cmd.Parameters.Add("nombre_pro", OracleDbType.Varchar2).Value = nombre;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
         public static List<Profesional> todos()
         {
             //Definir Variables
@@ -359,6 +414,26 @@ namespace Modelo
             cmd.Parameters.Add("nomEmpre", OracleDbType.Varchar2).Value = nombre_empresa;
             cmd.Parameters.Add("rubroEmpre", OracleDbType.Varchar2).Value = rubro_empresa;
             cmd.Parameters.Add("cant", OracleDbType.Int32).Value = cant_trabajadores;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void actualizar()
+        {
+
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTUALIZARCLIENTE", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id_usr", OracleDbType.Int32).Value = id_usuario;
+            cmd.Parameters.Add("rut_usr", OracleDbType.Varchar2).Value = rut;
+            cmd.Parameters.Add("nombre", OracleDbType.Varchar2).Value = nombre_empresa;
+            cmd.Parameters.Add("rubro", OracleDbType.Varchar2).Value = rubro_empresa;
+            cmd.Parameters.Add("c_trab", OracleDbType.Int32).Value = cant_trabajadores;
 
             //Ejecutar comando
             conn.Open();
