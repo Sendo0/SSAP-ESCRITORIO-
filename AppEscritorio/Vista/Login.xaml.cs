@@ -24,16 +24,27 @@ namespace Vista
     /// </summary>
     public partial class Login : MetroWindow
     {
+
+        private bool valRut { get; set; }
+        private bool valPass { get; set; }
         public Login()
         {
             InitializeComponent();
+            valRut = false;
+            valPass = false;
             ThemeManager.Current.ChangeTheme(this, "Light.Purple");
         }
+
+        //Trigger login
 
         private void funcion_loguear(object sender, RoutedEventArgs e)
         {
             Ctrl ctrl = Ctrl.login(tbxRut.Text, tbxPassword.Password);
-            if(ctrl != null)
+            if (!valPass || !valRut)
+            {
+                lblError.Text = "Error de formulario";
+            }
+            else if (ctrl != null)
             {
                 MenuPrincipal menuPrincipal = new MenuPrincipal(ctrl);
                 menuPrincipal.Show();
@@ -41,7 +52,40 @@ namespace Vista
             }
             else
             {
-                lblError.Content = "Usuario o Contraseña Incorrectos";
+                lblError.Text = "Error: Usuario o contraseña incorrecto";
+            }
+        }
+
+
+        //Validaciones
+
+        private void textoCambiado(object sender, TextChangedEventArgs e)
+        {
+            String rut = tbxRut.Text;
+            if (Validar.noVacio(rut) && Validar.minLength(rut, 12) && Validar.maxLength(rut,12) && Validar.rutValido(rut))
+            {
+                errorRut.Content = Validar.mensaje;
+                valRut = true;
+            }
+            else
+            {
+                errorRut.Content = Validar.mensaje;
+                valRut = false;
+            }
+        }
+
+        private void contraseñaCambiada(object sender, RoutedEventArgs e)
+        {
+            String pass = tbxPassword.Password;
+            if (Validar.noVacio(pass) && Validar.minLength(pass, 4) && Validar.maxLength(pass, 30))
+            {
+                errorPassword.Content = Validar.mensaje;
+                valPass = true;
+            }
+            else
+            {
+                errorPassword.Content = Validar.mensaje;
+                valPass = false;
             }
         }
     }

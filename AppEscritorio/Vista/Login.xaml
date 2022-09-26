@@ -13,15 +13,20 @@
             <Image Source="Imgs/logo.png" Margin="33,23,34,39"/>
         </Grid>
         <Image Stretch="Fill" Source="Imgs/5645309.png" Margin="538,28,0,0" HorizontalAlignment="Left" Width="206" Height="140" VerticalAlignment="Top" />
-        <Image Stretch="Fill" Margin="500,224,0,0" Source="Imgs/747981.png" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="38"/>
+        <Image Stretch="Fill" Margin="502,240,0,0" Source="Imgs/747981.png" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="38"/>
         <Image Stretch="Fill" Margin="498,175,0,0" Source="Imgs/7589345.png" HorizontalAlignment="Left" Width="42" Height="44" VerticalAlignment="Top"/>
+        <!-- Formulario -->
+        <TextBox Margin="545,184,0,0" TextWrapping="Wrap" Name="tbxRut" mah:TextBoxHelper.Watermark="12.345.678-9" FontFamily="MS Gothic" FontSize="14" HorizontalAlignment="Left" Width="193" Height="25" VerticalAlignment="Top" TextChanged="textoCambiado"/>
+        <PasswordBox x:Name="tbxPassword" Margin="545,244,0,0" mah:TextBoxHelper.Watermark="********" FontFamily="MS Gothic" FontSize="14" HorizontalAlignment="Left" Width="193" Height="26" VerticalAlignment="Top" PasswordChanged="contraseñaCambiada"/>
 
-        <TextBox Margin="545,184,0,0" TextWrapping="Wrap" Name="tbxRut" mah:TextBoxHelper.Watermark="12.345.678-9" FontFamily="MS Gothic" FontSize="14" HorizontalAlignment="Left" Width="193" Height="25" VerticalAlignment="Top" />
-        <PasswordBox x:Name="tbxPassword" Margin="545,228,0,0" mah:TextBoxHelper.Watermark="********" FontFamily="MS Gothic" FontSize="14" HorizontalAlignment="Left" Width="193" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="lblError" HorizontalAlignment="Left" Margin="498,272,0,0" VerticalAlignment="Top" Width="286" FontFamily="MS Gothic" FontSize="14" Foreground="Red" Height="26"/>
-        <Button x:Name="btnLogin1" HorizontalAlignment="Left" Margin="538,310,0,0" VerticalAlignment="Top" Height="82" Width="193" Background="{x:Null}" Click="funcion_loguear" BorderBrush="#FF8079E5">
+        <!-- Errores -->
+        <TextBlock x:Name="lblError" HorizontalAlignment="Left" Margin="498,381,0,0" VerticalAlignment="Top" Width="286" FontFamily="MS Gothic" FontSize="14" Foreground="Red" Height="26" TextAlignment="Center"/>
+        <Label x:Name="errorRut" HorizontalAlignment="Left" Margin="545,213,0,0" VerticalAlignment="Top" Width="193" FontFamily="MS Gothic" FontSize="14" Foreground="Red" Height="26"/>
+        <Label x:Name="errorPassword" HorizontalAlignment="Left" Margin="545,275,0,0" VerticalAlignment="Top" Width="193" FontFamily="MS Gothic" FontSize="14" Foreground="Red" Height="26"/>
+
+        <Button x:Name="btnLogin" HorizontalAlignment="Left" Margin="545,306,0,0" VerticalAlignment="Top" Height="70" Width="193" Background="{x:Null}" Click="funcion_loguear" BorderBrush="#FF8079E5">
             <StackPanel Orientation="Horizontal" Width="139">
-                <Image x:Name="btnLogin" Source="Imgs/3329410.png" Width="65" Height="66"/>
+                <Image Source="Imgs/3329410.png" Width="60" Height="54"/>
                 <TextBlock Width="82" FontFamily="MS Gothic" FontSize="20" Height="22"><Run Text="  Login" Foreground="Black"/></TextBlock>
             </StackPanel>
         </Button>
