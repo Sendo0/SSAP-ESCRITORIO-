@@ -67,6 +67,7 @@ namespace Vista
 
             //Estilos y Boton cerrar
             Closing += accionCerrar;
+            llenarCombobox();
             ThemeManager.Current.ChangeTheme(this, "Light.Purple");
         }
 
@@ -120,7 +121,7 @@ namespace Vista
             {
                 usuario.direccion = txbDireccion.Text;
                 usuario.contraseña = txbPassword.Password;
-                usuario.id_comuna = 1;
+                usuario.id_comuna = Int32.Parse(cbxComuna.SelectedValue.ToString());
                 if (cbxTipo.SelectedIndex == 0 && valNombreEmpresa && valRubroEmpresa && valCantTr)
                 {
                     cliente.nombre_empresa = txbNombreEmpresa.Text;
@@ -149,6 +150,40 @@ namespace Vista
             else
             {
                 errorFormulario.Text = "Error de formulario";
+            }
+        }
+
+        private void llenarCombobox()
+        {
+            String region_tmp = "";
+            String ciudad_tmp = "";
+            foreach (Ubicacion ubicacion in Ubicacion.todos())
+            {
+                if (!ubicacion.nombre_region.Equals(region_tmp))
+                {
+                    region_tmp = ubicacion.nombre_region;
+                    ComboBoxItem titulo_region = new ComboBoxItem();
+                    titulo_region.Content = region_tmp;
+                    titulo_region.FontWeight = FontWeights.Bold;
+                    titulo_region.IsEnabled = false;
+                    cbxComuna.Items.Add(titulo_region);
+                }
+                if (!ubicacion.nombre_ciudad.Equals(ciudad_tmp))
+                {
+                    ubicacion.nombre_ciudad = ubicacion.nombre_ciudad;
+                    ciudad_tmp = ubicacion.nombre_ciudad;
+                    ComboBoxItem titulo_ciudad = new ComboBoxItem();
+                    titulo_ciudad.Content = " " + ciudad_tmp;
+                    titulo_ciudad.FontWeight = FontWeights.Bold;
+                    titulo_ciudad.IsEnabled = false;
+                    cbxComuna.Items.Add(titulo_ciudad);
+                }
+                ubicacion.nombre_comuna = "  " + ubicacion.nombre_comuna;
+                cbxComuna.Items.Add(ubicacion);
+                if(usuario.id_comuna == ubicacion.id_comuna)
+                {
+                    cbxComuna.SelectedItem = ubicacion;
+                }
             }
         }
 

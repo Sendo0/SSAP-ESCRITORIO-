@@ -547,4 +547,41 @@ namespace Modelo
             conn.Close();
         }
     }
+
+    //--------------Modelos de Ubicación--------------
+
+    public class Ubicacion
+    {
+        public int id_comuna { get; set; }
+        public String nombre_comuna { get; set; }
+        public String nombre_ciudad { get; set; }
+        public String nombre_region { get; set; }
+        public static List<Ubicacion> todos()
+        {
+            //Definir Variables
+            List<Ubicacion> lista = new List<Ubicacion>();
+            DataTable dt = new DataTable();
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("SELECCIONARUBICACION", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+            //Llenar Lista
+            conn.Open();
+            da.Fill(dt);
+            lista = (from fila in dt.AsEnumerable()
+                     select new Ubicacion
+                     {
+                         id_comuna = Convert.ToInt32(fila["ID_COMUNA"]),
+                         nombre_comuna = Convert.ToString(fila["NOMBRE_COMUNA"]),
+                         nombre_ciudad = Convert.ToString(fila["NOMBRE_CIUDAD"]),
+                         nombre_region = Convert.ToString(fila["NOMBRE_REGION"])
+                     }).ToList();
+            conn.Close();
+            return lista;
+        }
+    }
 }

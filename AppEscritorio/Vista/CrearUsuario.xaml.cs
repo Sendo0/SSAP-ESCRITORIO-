@@ -24,7 +24,7 @@ namespace Vista
     /// </summary>
     public partial class CrearUsuario : MetroWindow
     {
-        private bool valRut = false, valPass = false, valRepPass = false, valDireccion = false, 
+        private bool valRut = false, valPass = false,valRepPass = false, valDireccion = false, 
             valNombreEmpresa = false, valRubroEmpresa = false, valCantTr = false, valCosto = false,
             valNombreProfesional = false, valNombreAdministrador = false;
         MenuPrincipal menu;
@@ -74,9 +74,32 @@ namespace Vista
 
         private void llenarCombobox()
         {
-            foreach (Profesional profesional in Profesional.todos())
+            String region_tmp = "";
+            String ciudad_tmp = "";
+            cbxProfesional.ItemsSource = Profesional.todos();
+            foreach (Ubicacion ubicacion in Ubicacion.todos())
             {
-                cbxProfesional.Items.Add(profesional);
+                if (!ubicacion.nombre_region.Equals(region_tmp))
+                {
+                    region_tmp = ubicacion.nombre_region;
+                    ComboBoxItem titulo_region = new ComboBoxItem();
+                    titulo_region.Content = region_tmp;
+                    titulo_region.FontWeight = FontWeights.Bold;
+                    titulo_region.IsEnabled = false;
+                    cbxComuna.Items.Add(titulo_region);
+                }
+                if (!ubicacion.nombre_ciudad.Equals(ciudad_tmp))
+                {
+                    ubicacion.nombre_ciudad = ubicacion.nombre_ciudad;
+                    ciudad_tmp = ubicacion.nombre_ciudad;
+                    ComboBoxItem titulo_ciudad = new ComboBoxItem();
+                    titulo_ciudad.Content = " "+ciudad_tmp;
+                    titulo_ciudad.FontWeight = FontWeights.Bold;
+                    titulo_ciudad.IsEnabled = false;
+                    cbxComuna.Items.Add(titulo_ciudad);
+                }
+                ubicacion.nombre_comuna = "  "+ubicacion.nombre_comuna;
+                cbxComuna.Items.Add(ubicacion);
             }
         }
 
@@ -91,9 +114,9 @@ namespace Vista
 
         private void crearUsuario(object sender, RoutedEventArgs e)
         {
-            if (valRut && valPass && valRepPass && valDireccion)
+            if (valRut && valPass && valRepPass && cbxComuna.SelectedItem != null && valDireccion)
             {
-                Usuario nuevoUsr = new Usuario { contraseña = txbPassword.Password, tipo = cbxTipo.Text, id_comuna = 1, direccion = txbDireccion.Text };
+                Usuario nuevoUsr = new Usuario { contraseña = txbPassword.Password, tipo = cbxTipo.Text, id_comuna = Int32.Parse(cbxComuna.SelectedValue.ToString()), direccion = txbDireccion.Text };
                 if (cbxTipo.SelectedIndex == 0 && valNombreEmpresa && valRubroEmpresa && valCantTr && valCosto)
                 {
                     Cliente nuevoCli = new Cliente { rut = txbRut.Text, nombre_empresa = txbNombreEmpresa.Text, rubro_empresa = txbRubroEmpresa.Text, cant_trabajadores = Int32.Parse(txbCantidadTrabajadores.Text) };
