@@ -6,7 +6,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="| Crear Usuario" Height="600" Width="600" MaxWidth="600" MaxHeight="600" WindowStartupLocation="CenterScreen" 
+        Title="| Crear Usuario" Height="602.088" Width="600" MaxWidth="600" MaxHeight="600" WindowStartupLocation="CenterScreen" 
         ResizeMode="CanMinimize" Icon="Imgs/logo.png">
     <Grid Background="AliceBlue" HorizontalAlignment="Left" Width="600">
         <Border BorderBrush="#33958D8D" BorderThickness="2" CornerRadius="9" Margin="45,10,45,10" Background="#33958D8D">

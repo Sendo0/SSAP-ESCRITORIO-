@@ -8,3 +8,13 @@ C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Controlador\obj\D
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Controlador\obj\Debug\Controlador.dll
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Controlador\obj\Debug\Controlador.pdb
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Controlador\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Controlador.dll
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Modelo.dll
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.dll
+C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.pdb

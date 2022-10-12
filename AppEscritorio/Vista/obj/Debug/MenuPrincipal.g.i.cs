@@ -106,7 +106,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 79 "..\..\MenuPrincipal.xaml"
+        #line 82 "..\..\MenuPrincipal.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TabItem menuActividad;
         
@@ -114,7 +114,7 @@ namespace Vista {
         #line hidden
         
         
-        #line 91 "..\..\MenuPrincipal.xaml"
+        #line 94 "..\..\MenuPrincipal.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnLogout;
         
@@ -193,7 +193,7 @@ namespace Vista {
             case 10:
             this.btnLogout = ((System.Windows.Controls.Button)(target));
             
-            #line 91 "..\..\MenuPrincipal.xaml"
+            #line 94 "..\..\MenuPrincipal.xaml"
             this.btnLogout.Click += new System.Windows.RoutedEventHandler(this.logout);
             
             #line default

@@ -76,6 +76,9 @@
                 <Grid Background="AliceBlue"/>
             </TabItem>
 
+
+            <!--Botón Actividad-->
+
             <TabItem x:Name="menuActividad" HorizontalAlignment="Left" Height="116" Width="280" BorderBrush="#FF4E45D1" BorderThickness="0 0 0 1">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">

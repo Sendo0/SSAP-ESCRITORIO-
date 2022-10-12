@@ -16,7 +16,11 @@ namespace Modelo
         public static String connexion_String { get; set; }
         static Variables()
         {
-            connexion_String =  "DATA SOURCE = localhost:1522/ORCL1; PASSWORD=123456;USER ID = SSAP";
+            connexion_String =  "DATA SOURCE = localhost:1521/xe; PASSWORD=123456;USER ID = SSAP";
+
+
+
+           
         }
     }
 
