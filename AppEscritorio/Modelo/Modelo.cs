@@ -549,6 +549,46 @@ namespace Modelo
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+            guardar_checklist();
+        }
+        private Contrato filtro_rutcliente()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("contrato_porRutCliente", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("rutCli", OracleDbType.Varchar2).Value = CLIENTE_rut;
+
+            //Ejecutar comando
+            conn.Open();
+            using (OracleDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    Contrato contrato = new Contrato { id_contrato = r.GetInt32(0), costo_base = r.GetInt32(1), fecha_firma = r.GetDateTime(2), ultimo_pago = r.GetDateTime(3), CLIENTE_rut = r.GetString(4), PROFESIONAL_rut = r.GetString(5) };
+                    conn.Close();
+                    return contrato;
+                }
+            }
+            return null;
+        }
+        private void guardar_checklist()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("INSERTARCHECKLIST", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("idCtr", OracleDbType.Int32).Value = filtro_rutcliente().id_contrato;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 
