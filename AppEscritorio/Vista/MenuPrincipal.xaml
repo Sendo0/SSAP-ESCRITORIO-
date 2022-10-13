@@ -77,8 +77,7 @@
             </TabItem>
 
 
-            <!--Botón Actividad-->
-
+            <!--Ver Actividades-->
             <TabItem x:Name="menuActividad" HorizontalAlignment="Left" Height="116" Width="280" BorderBrush="#FF4E45D1" BorderThickness="0 0 0 1">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -86,7 +85,30 @@
                         <TextBlock Width="182" FontFamily="MS Gothic" FontWeight="Bold" FontSize="22" Foreground="White" Margin="0,48,0,0" Height="21" VerticalAlignment="Top"><Run FontSize="20" Text="  Ver Actividades"/></TextBlock>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="AliceBlue"/>
+                <!--Ventana-->
+                <Grid Background="AliceBlue">
+                    <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" FontSize="35" FontWeight="Bold" Text="Actividades Profesionales" TextAlignment="Center" VerticalAlignment="Top" Height="40" Width="718" FontFamily="MS Gothic"/>
+                    <Border BorderBrush="#33958D8D" BorderThickness="2" CornerRadius="9" Margin="10,32,10,38" Background="#33958D8D">
+                        <Grid>
+                            <Button x:Name="btnBuscarProf" Content="Buscar" HorizontalAlignment="Left" Margin="361,48,0,0" VerticalAlignment="Top" Width="332" Background="#FF8079E5" Foreground="White" Height="39" Click="buscarActividad" IsEnabled="False"/>
+                            <TextBox x:Name="rutProfesional" HorizontalAlignment="Left" Height="39" Margin="27,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" mah:TextBoxHelper.Watermark="Ingrese rut profesional." TextChanged="rutProfesional_TextChanged" FontFamily="MS Gothic" FontSize="20"/>
+                            <TextBlock x:Name="errorRutPro" HorizontalAlignment="Left" Margin="27,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="329" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="27,106,21,346">
+                                <StackPanel Orientation="Horizontal" Background="#FFFBFAFA">
+                                    <TextBlock Text="Profesional" FontFamily="MS Gothic" FontWeight="Bold" FontSize="16" Width="150px" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Text="Tipo" FontFamily="MS Gothic" FontWeight="Bold" FontSize="16" Width="150px" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Text="Fecha" FontFamily="MS Gothic" FontWeight="Bold" FontSize="16" Width="150px" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Text="Ubicacion" FontFamily="MS Gothic" FontWeight="Bold" FontSize="16" Width="170px" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="27,146,21,23">
+                                <ScrollViewer>
+                                    <StackPanel x:Name="act_tblActividades" Background="#FFFBFAFA"/>
+                                </ScrollViewer>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
             </TabItem>
         </mah:MetroTabControl>
 

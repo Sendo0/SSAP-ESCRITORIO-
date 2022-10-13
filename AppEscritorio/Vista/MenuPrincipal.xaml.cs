@@ -195,6 +195,62 @@ namespace Vista
             txtMensaje.Text = Ctrl.mensaje;
         }
 
+        //----------------------Ver Actividades----------------------
+        private void buscarActividad(object sender, RoutedEventArgs e)
+        {
+            act_tblActividades.Children.Clear();
+            foreach (Actividad actividad in Actividad.obtener(rutProfesional.Text))
+            {
+                //Crear un objeto donde se stackearán los datos
+                StackPanel fila = new StackPanel();
+                fila.Orientation = Orientation.Horizontal;
+                fila.HorizontalAlignment = HorizontalAlignment.Center;
+                Thickness margen = fila.Margin;
+                margen.Top = 5;
+                fila.Margin = margen;
+                Separator separador = new Separator();
+
+                //Creamos Contenedores
+                Label profesional = new Label();
+                Label tipo = new Label();
+                Label fecha = new Label();
+                Label ubicacion= new Label();
+
+                //Estilos de Label
+                profesional.Width = 150;
+                tipo.Width = 150;
+                fecha.Width = 150;
+                ubicacion.Width = 150;
+
+                profesional.FontSize = 16;
+                tipo.FontSize = 16;
+                fecha.FontSize = 16;
+                ubicacion.FontSize = 16;
+
+                profesional.HorizontalContentAlignment = HorizontalAlignment.Center;
+                tipo.HorizontalContentAlignment = HorizontalAlignment.Center;
+                fecha.HorizontalContentAlignment = HorizontalAlignment.Center;
+                ubicacion.HorizontalContentAlignment = HorizontalAlignment.Center;
+
+                profesional.VerticalContentAlignment = VerticalAlignment.Center;
+                tipo.VerticalContentAlignment = VerticalAlignment.Center;
+                fecha.VerticalContentAlignment = VerticalAlignment.Center;
+                ubicacion.VerticalContentAlignment = VerticalAlignment.Center;
+
+                //Insercion de Variables
+                profesional.Content = actividad.nombre_profesional;
+                tipo.Content = actividad.tipo;
+                fecha.Content = actividad.fecha.ToString("dd/MM/yyyy");
+                ubicacion.Content = actividad.ubicacion;
+
+                fila.Children.Add(profesional);
+                fila.Children.Add(tipo);
+                fila.Children.Add(fecha);
+                fila.Children.Add(ubicacion);
+                act_tblActividades.Children.Add(fila);
+                act_tblActividades.Children.Add(separador);
+            }
+        }
 
         //----Estilos Barra Lateral (mouseover)--------
         private void MenuBienvenida_MouseLeave(object sender, MouseEventArgs e)
@@ -231,6 +287,22 @@ namespace Vista
         private void MenuReporte_MouseEnter(object sender, MouseEventArgs e)
         {
             menuReporte.Background = new SolidColorBrush(Color.FromRgb(156, 149, 255));
+        }
+
+        //----Validar--------
+
+        private void rutProfesional_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Validar.noVacio(rutProfesional.Text) && Validar.rutValido(rutProfesional.Text))
+            {
+                errorRutPro.Text = Validar.mensaje;
+                btnBuscarProf.IsEnabled = true;
+            }
+            else
+            {
+                errorRutPro.Text = Validar.mensaje;
+                btnBuscarProf.IsEnabled = false;
+            }
         }
     }
 }

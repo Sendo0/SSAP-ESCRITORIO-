@@ -16,7 +16,7 @@ namespace Modelo
         public static String connexion_String { get; set; }
         static Variables()
         {
-            connexion_String =  "DATA SOURCE = localhost:1521/xe; PASSWORD=123456;USER ID = SSAP";
+            connexion_String =  "DATA SOURCE = localhost:1522/ORCL1; PASSWORD=123456;USER ID = SSAP";
 
 
 
@@ -624,6 +624,78 @@ namespace Modelo
                          nombre_ciudad = Convert.ToString(fila["NOMBRE_CIUDAD"]),
                          nombre_region = Convert.ToString(fila["NOMBRE_REGION"])
                      }).ToList();
+            conn.Close();
+            return lista;
+        }
+    }
+
+    //--------------Modelos de Actividades--------------
+
+    public class Actividad
+    {
+        public String nombre_profesional { get; set; }
+        public String tipo { get; set; }
+        public DateTime fecha { get; set; }
+        public String ubicacion { get; set; }
+        public static List<Actividad> obtener(String rut_pro)
+        {
+            //Definir Variables
+            List<Actividad> lista = new List<Actividad>();
+            DataTable dt = new DataTable();
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("ACTIVIDADPROFVISITA", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("rutProf", OracleDbType.Varchar2).Value = rut_pro;
+            //Llenar Lista
+            conn.Open();
+            //---Tipo: Visita---
+            da.Fill(dt);
+            lista.AddRange((from fila in dt.AsEnumerable()
+                     select new Actividad
+                     {
+                         nombre_profesional = Convert.ToString(fila["NOMBRE_PRO"]),
+                         tipo = "Visita",
+                         fecha = Convert.ToDateTime(fila["FECHA"]),
+                         ubicacion = Convert.ToString(fila["UBICACION"])+", "+Convert.ToString(fila["COMUNA"])
+                     }).ToList());
+
+            //---Tipo: Capacitacion---
+            dt.Clear();
+            OracleCommand cmd1 = new OracleCommand("ACTIVIDADPROFCAPACITACION", conn);
+            OracleDataAdapter da1 = new OracleDataAdapter(cmd1);
+            cmd1.CommandType = CommandType.StoredProcedure;
+            cmd1.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd1.Parameters.Add("rutProf", OracleDbType.Varchar2).Value = rut_pro;
+            da1.Fill(dt);
+            lista.AddRange((from fila in dt.AsEnumerable()
+                     select new Actividad
+                     {
+                         nombre_profesional = Convert.ToString(fila["NOMBRE_ENCARGADO"]),
+                         tipo = "Capacitacion",
+                         fecha = Convert.ToDateTime(fila["FECHA_CAPACITACION"]),
+                         ubicacion = Convert.ToString(fila["UBICACION"]) + ", \n" + Convert.ToString(fila["COMUNA"])
+                     }).ToList());
+
+            //---Tipo: Asesoria---
+            dt.Clear();
+            OracleCommand cmd2 = new OracleCommand("ACTIVIDADPROFASESORIA", conn);
+            OracleDataAdapter da2 = new OracleDataAdapter(cmd2);
+            cmd2.CommandType = CommandType.StoredProcedure;
+            cmd2.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd2.Parameters.Add("rutProf", OracleDbType.Varchar2).Value = rut_pro;
+            da2.Fill(dt);
+            lista.AddRange((from fila in dt.AsEnumerable()
+                     select new Actividad
+                     {
+                         nombre_profesional = Convert.ToString(fila["NOMBRE_ENCARGADO"]),
+                         tipo = "Asesoria",
+                         fecha = Convert.ToDateTime(fila["FECHA_CREACION"]),
+                         ubicacion = "N/A"
+                     }).ToList());
             conn.Close();
             return lista;
         }
