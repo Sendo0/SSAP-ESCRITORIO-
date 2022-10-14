@@ -95,6 +95,7 @@ namespace Vista
                 Button deshabilitar = new Button();
                 Button modificar = new Button();
                 Button habilitar = new Button();
+                Button pagos = new Button();
 
                 deshabilitar.Tag = usuario.id_usuario;
                 deshabilitar.Content = "Deshabilitar";
@@ -113,6 +114,11 @@ namespace Vista
                 habilitar.Background = new SolidColorBrush(Color.FromRgb(51, 204, 51));
                 habilitar.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                 habilitar.Click += estadoUsuario;
+
+                pagos.Tag = usuario.id_usuario;
+                pagos.Content = "Control Pagos";
+                pagos.Background = new SolidColorBrush(Color.FromRgb(251, 195, 4));
+                pagos.Click += controlPagos;
 
                 //Estilos de Label
                 rut.Width = 150;
@@ -163,6 +169,10 @@ namespace Vista
                 {
                     acciones.Children.Add(deshabilitar);
                     acciones.Children.Add(modificar);
+                    if(usuario.tipo == "CLIENTE")
+                    {
+                        acciones.Children.Add(pagos);
+                    }
                 }
                 else
                 {
@@ -193,6 +203,14 @@ namespace Vista
             Ctrl.estadoUsuario(Int32.Parse(boton.Tag.ToString()));
             recargarTablaUsuarios();
             txtMensaje.Text = Ctrl.mensaje;
+        }
+
+        private void controlPagos(object sender, RoutedEventArgs e)
+        {
+            Button boton = (Button)sender;
+            int id = Int32.Parse(boton.Tag.ToString());
+            ControladorPago controlPagos = new ControladorPago(this, id);
+            controlPagos.Show();
         }
 
         //----------------------Ver Actividades----------------------

@@ -16,11 +16,7 @@ namespace Modelo
         public static String connexion_String { get; set; }
         static Variables()
         {
-            connexion_String =  "DATA SOURCE = localhost:1522/ORCL1; PASSWORD=123456;USER ID = SSAP";
-
-
-
-           
+            connexion_String =  "DATA SOURCE = localhost:1522/ORCL1; PASSWORD=123456;USER ID = SSAP";      
         }
     }
 
@@ -551,6 +547,30 @@ namespace Modelo
             conn.Close();
             guardar_checklist();
         }
+        public static Contrato filtro_rutcliente(String rut)
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("contrato_porRutCliente", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("rutCli", OracleDbType.Varchar2).Value = rut;
+
+            //Ejecutar comando
+            conn.Open();
+            using (OracleDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    Contrato contrato = new Contrato { id_contrato = r.GetInt32(0), costo_base = r.GetInt32(1), fecha_firma = r.GetDateTime(2), ultimo_pago = r.GetDateTime(3), CLIENTE_rut = r.GetString(4), PROFESIONAL_rut = r.GetString(5) };
+                    conn.Close();
+                    return contrato;
+                }
+            }
+            return null;
+        }
         private Contrato filtro_rutcliente()
         {
             //Definir Variables
@@ -698,6 +718,78 @@ namespace Modelo
                      }).ToList());
             conn.Close();
             return lista;
+        }
+    }
+
+    //--------------Modelos de Pagos--------------
+
+    public class Mensualidad
+    {
+        public int id_mensualidad { get; set; }
+        public DateTime fecha_limite { get; set; }
+        public bool estado { get; set; }
+        public int costo { get; set; }
+        public int id_contrato { get; set; }
+        public String fecha_pago { get; set; }
+        public String boleta { get; set; }
+        public static List<Mensualidad> todos_idcontrato(int id_con)
+        {
+
+            //Definir Variables
+            List<Mensualidad> lista = new List<Mensualidad>();
+            DataTable dt = new DataTable();
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("PAGO_PORIDCONTRATO", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("idCtr", OracleDbType.Int32).Value = id_con;
+
+            //Llenar Lista
+            conn.Open();
+            da.Fill(dt);
+            lista = (from fila in dt.AsEnumerable()
+                     select new Mensualidad
+                     {
+                         id_mensualidad = Convert.ToInt32(fila["ID_MENSUALIDAD"]),
+                         fecha_limite = Convert.ToDateTime(fila["FECHA_LIMITE"]),
+                         estado = Convert.ToBoolean(fila["ESTADO"]),
+                         costo = Convert.ToInt32(fila["COSTO"]),
+                         id_contrato = Convert.ToInt32(fila["ID_CONTRATO"]),
+                         fecha_pago = Convert.ToString(fila["FECHA_PAGO"]),
+                         boleta = Convert.ToString(fila["BOLETA"])
+                     }).ToList();
+            conn.Close();
+            return lista;
+        }
+    }
+
+    public class Notificacion
+    {
+        public int id_notificacion { get; set; }
+        public String titulo { get; set; }
+        public String descripcion { get; set; }
+        public DateTime fecha { get; set; }
+        public String CLIENTE_rut { get; set; }
+        public void guardar()
+        {
+            //Definir Variables
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("INSERTARNOTIFICACION", conn);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("titulo", OracleDbType.Varchar2).Value = titulo;
+            cmd.Parameters.Add("descrip", OracleDbType.Varchar2).Value = descripcion;
+            cmd.Parameters.Add("fecha", OracleDbType.Date).Value = fecha;
+            cmd.Parameters.Add("rutCli", OracleDbType.Varchar2).Value = CLIENTE_rut;
+
+            //Ejecutar comando
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
