@@ -80,3 +80,5 @@ C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.exe
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.pdb
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\obj\Debug\ControladorPago.g.cs
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\obj\Debug\ControladorPago.baml
