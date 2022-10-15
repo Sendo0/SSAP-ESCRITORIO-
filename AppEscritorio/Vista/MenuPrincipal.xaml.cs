@@ -16,6 +16,8 @@ using Controlador;
 using Modelo;
 using ControlzEx.Theming;
 using MahApps.Metro.Controls;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace Vista
 {
@@ -83,7 +85,7 @@ namespace Vista
                 Thickness margen = vistaUsuario.Margin;
                 margen.Top = 5;
                 vistaUsuario.Margin = margen;
-                Separator separador = new Separator();
+                System.Windows.Controls.Separator separador = new System.Windows.Controls.Separator();
 
                 //Creamos Contenedores
                 Label rut = new Label();
@@ -213,6 +215,37 @@ namespace Vista
             controlPagos.Show();
         }
 
+
+        //---------------------- Crear Reportes ----------------------
+
+        private void cargarReportes(object sender, RoutedEventArgs e)
+        {
+            int cantidad_cli = 0;
+            int cantidad_pro = 0;
+            int cantidad_admin = 0;
+            Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0}", chartPoint.Y, chartPoint.Participation);
+            SeriesCollection series = new SeriesCollection();
+            foreach (var obj in Usuario.todos())
+            {
+                if (obj.tipo == "CLIENTE")
+                {
+                    cantidad_cli++;
+                }
+                if (obj.tipo == "PROFESIONAL")
+                {
+                    cantidad_pro++;
+                }
+                if (obj.tipo == "ADMINISTRADOR")
+                {
+                    cantidad_admin++;
+                }
+            }
+            series.Add(new PieSeries() { Title = "Cliente", Values = new ChartValues<int> { cantidad_cli }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = "Profesionales", Values = new ChartValues<int> { cantidad_pro }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = "Administradores", Values = new ChartValues<int> { cantidad_admin }, DataLabels = true, LabelPoint = labelPoint });
+            pichart1.Series = series;
+        }
+
         //----------------------Ver Actividades----------------------
         private void buscarActividad(object sender, RoutedEventArgs e)
         {
@@ -226,7 +259,7 @@ namespace Vista
                 Thickness margen = fila.Margin;
                 margen.Top = 5;
                 fila.Margin = margen;
-                Separator separador = new Separator();
+                System.Windows.Controls.Separator separador = new System.Windows.Controls.Separator();
 
                 //Creamos Contenedores
                 Label profesional = new Label();

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vista"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="| Menú Principal" Height="600" Width="1024" MaxHeight="600" MaxWidth="1024" WindowStartupLocation="CenterScreen" 
         ResizeMode="CanMinimize" Icon="Imgs/logo.png">
@@ -73,7 +74,10 @@
                         <TextBlock Width="182" FontFamily="MS Gothic" FontWeight="Bold" FontSize="22" Foreground="White" Margin="0,48,0,0" Height="21" VerticalAlignment="Top"><Run FontSize="20" Text="   Crear Reportes"/></TextBlock>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="AliceBlue"/>
+                <Grid Background="AliceBlue">
+                    <Wpf:PieChart x:Name="pichart1" LegendLocation="Left" Margin="37,125,185,45" Loaded="cargarReportes">
+                    </Wpf:PieChart>
+                </Grid>
             </TabItem>
 
 

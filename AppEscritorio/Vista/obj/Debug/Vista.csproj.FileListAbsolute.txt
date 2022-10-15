@@ -82,3 +82,9 @@ C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.pdb
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\obj\Debug\ControladorPago.g.cs
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\obj\Debug\ControladorPago.baml
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\bin\Debug\LiveCharts.dll
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\bin\Debug\LiveCharts.pdb
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\bin\Debug\LiveCharts.xml
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\bin\Debug\LiveCharts.Wpf.xml
