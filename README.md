@@ -16,3 +16,5 @@ Paquetes NuGet Vista:
 - MahappsMetro 2.4.9
 
 - MahappsMetro Resources 0.6.1
+
+- LiveCharts 0.9.7
