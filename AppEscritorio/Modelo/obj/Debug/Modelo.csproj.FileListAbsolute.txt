@@ -14,3 +14,11 @@ C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.dll
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.pdb
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\bin\Debug\Modelo.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\bin\Debug\Modelo.pdb
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Modelo\obj\Debug\Modelo.pdb

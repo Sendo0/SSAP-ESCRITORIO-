@@ -245,9 +245,14 @@ namespace Vista
             series.Add(new PieSeries() { Title = "Administradores", Values = new ChartValues<int> { cantidad_admin }, DataLabels = true, LabelPoint = labelPoint });
             pichart1.Series = series;
         }
+        public void TablaReportes()
+        { 
+        
+        
+        }
 
-        //----------------------Ver Actividades----------------------
-        private void buscarActividad(object sender, RoutedEventArgs e)
+            //----------------------Ver Actividades----------------------
+            private void buscarActividad(object sender, RoutedEventArgs e)
         {
             act_tblActividades.Children.Clear();
             foreach (Actividad actividad in Actividad.obtener(rutProfesional.Text))

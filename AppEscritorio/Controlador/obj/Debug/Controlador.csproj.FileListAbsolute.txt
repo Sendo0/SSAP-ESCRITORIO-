@@ -18,3 +18,13 @@ C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlado
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.dll
 C:\Users\Send0\Documents\GitEscritorio\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.pdb
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Controlador.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Controlador.pdb
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Modelo.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Modelo.pdb
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.dll
+C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.pdb
