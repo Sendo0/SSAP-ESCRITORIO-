@@ -765,6 +765,43 @@ namespace Modelo
             return lista;
         }
     }
+    public class Pagos_Mensual
+    {
+        
+        public int año { get; set; }
+        public String mes { get; set; }
+        public int costo { get; set; }
+
+        public static List<Pagos_Mensual> Todos ()
+        {
+
+            //Definir Variables
+            List<Pagos_Mensual> lista = new List<Pagos_Mensual>();
+            DataTable dt = new DataTable();
+            OracleConnection conn = new OracleConnection(Variables.connexion_String);
+            OracleCommand cmd = new OracleCommand("PA_BUSCAR_PAGOS", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            //Dar parámetros al comando
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            //Llenar Lista
+            conn.Open();
+            da.Fill(dt);
+            lista = (from fila in dt.AsEnumerable()
+                     select new Pagos_Mensual
+                     {
+                         año = Convert.ToInt32(fila["AÑO"]),
+                         mes = Convert.ToString(fila["MES"]),
+                         costo = Convert.ToInt32(fila["TOTAL_MENSUAL"]),
+                      
+                     }).ToList();
+            conn.Close();
+            return lista;
+        }
+
+    }
+
 
     public class Notificacion
     {

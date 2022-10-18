@@ -246,9 +246,56 @@ namespace Vista
             pichart1.Series = series;
         }
         public void TablaReportes()
-        { 
-        
-        
+        {
+            ReporteTotal.Children.Clear();
+            foreach (Pagos_Mensual pago_mensual in Pagos_Mensual.Todos())
+            {
+                //Crear un objeto donde se stackearán los datos
+                StackPanel fila = new StackPanel();
+                fila.Orientation = Orientation.Horizontal;
+                fila.HorizontalAlignment = HorizontalAlignment.Center;
+                Thickness margen = fila.Margin;
+                margen.Top = 5;
+                fila.Margin = margen;
+                System.Windows.Controls.Separator separador = new System.Windows.Controls.Separator();
+
+                //Creamos Contenedores
+                Label Año = new Label();
+                Label Mes = new Label();
+                Label Total= new Label();
+
+
+                //Estilos de Label
+                Año.Width = 150;
+                Mes.Width = 150;
+                Total.Width = 150;
+
+
+                Año.FontSize = 16;
+                Mes.FontSize = 16;
+                Total.FontSize = 16;
+
+                Año.HorizontalContentAlignment = HorizontalAlignment.Center;
+                Mes.HorizontalContentAlignment = HorizontalAlignment.Center;
+                Total.HorizontalContentAlignment = HorizontalAlignment.Center;
+
+                Año.VerticalContentAlignment = VerticalAlignment.Center;
+                Mes.VerticalContentAlignment = VerticalAlignment.Center;
+                Total.VerticalContentAlignment = VerticalAlignment.Center;
+
+                //Insercion de Variables
+                Año.Content = pago_mensual.año;
+                Mes.Content = pago_mensual.mes;
+                Total.Content = pago_mensual.costo;
+           
+
+                fila.Children.Add(Año);
+                fila.Children.Add(Mes);
+                fila.Children.Add(Total);
+                ReporteTotal.Children.Add(fila);
+                ReporteTotal.Children.Add(separador);
+            }
+
         }
 
             //----------------------Ver Actividades----------------------
