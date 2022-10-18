@@ -244,6 +244,7 @@ namespace Vista
             series.Add(new PieSeries() { Title = "Profesionales", Values = new ChartValues<int> { cantidad_pro }, DataLabels = true, LabelPoint = labelPoint });
             series.Add(new PieSeries() { Title = "Administradores", Values = new ChartValues<int> { cantidad_admin }, DataLabels = true, LabelPoint = labelPoint });
             pichart1.Series = series;
+            TablaReportes();
         }
         public void TablaReportes()
         {
@@ -266,9 +267,9 @@ namespace Vista
 
 
                 //Estilos de Label
-                Año.Width = 150;
-                Mes.Width = 150;
-                Total.Width = 150;
+                Año.Width = 220;
+                Mes.Width = 220;
+                Total.Width = 220;
 
 
                 Año.FontSize = 16;
@@ -286,7 +287,7 @@ namespace Vista
                 //Insercion de Variables
                 Año.Content = pago_mensual.año;
                 Mes.Content = pago_mensual.mes;
-                Total.Content = pago_mensual.costo;
+                Total.Content = "$"+pago_mensual.costo;
            
 
                 fila.Children.Add(Año);
@@ -295,11 +296,10 @@ namespace Vista
                 ReporteTotal.Children.Add(fila);
                 ReporteTotal.Children.Add(separador);
             }
-
         }
 
-            //----------------------Ver Actividades----------------------
-            private void buscarActividad(object sender, RoutedEventArgs e)
+        //----------------------Ver Actividades----------------------
+        private void buscarActividad(object sender, RoutedEventArgs e)
         {
             act_tblActividades.Children.Clear();
             foreach (Actividad actividad in Actividad.obtener(rutProfesional.Text))

@@ -81,4 +81,3 @@ C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\bin
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\XamlC.stamp
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.csproj.CopyComplete
 C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\bin\Debug\Oracle.ManagedDataAccess.dll
-C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\AppEscritorio\obj\Debug\AppEscritorio.csproj.SuggestedBindingRedirects.cache
