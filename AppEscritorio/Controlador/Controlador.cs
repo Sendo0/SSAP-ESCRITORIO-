@@ -148,5 +148,12 @@ namespace Controlador
                 mensaje = "Usuario Habilitado";
             }
         }
+
+        //----CONTROL DE PAGOS----
+        public static void reportarAtraso(Notificacion notificacion)
+        {
+            notificacion.guardar();
+            mensaje = "Notificación de atraso Enviada";
+        }
     }
 }

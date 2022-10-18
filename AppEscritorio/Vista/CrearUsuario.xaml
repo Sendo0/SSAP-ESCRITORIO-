@@ -59,7 +59,7 @@
 
                             <TextBox x:Name="txbCosto" HorizontalAlignment="Left" Height="30" Margin="236,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="200000" FontSize="16" TextChanged="txbCosto_TextChanged"/>
                             <DatePicker x:Name="dteFirma" HorizontalAlignment="Left" Margin="236,589,0,-4" VerticalAlignment="Top" Width="246" Height="30"/>
-                            <ComboBox x:Name="cbxProfesional" HorizontalAlignment="Left" Margin="236,638,0,-53" VerticalAlignment="Top" Width="246" Height="30" DisplayMemberPath="nombre" SelectedValuePath="rut" FontFamily="MS Gothic" FontSize="16"/>
+                            <ComboBox x:Name="cbxProfesional" HorizontalAlignment="Left" Margin="236,638,0,-53" VerticalAlignment="Top" Width="246" Height="30" DisplayMemberPath="nombre" SelectedValuePath="rut" FontFamily="MS Gothic" FontSize="16" SelectedIndex="0"/>
 
                             <!-- Errores -->
                             <TextBlock x:Name="errorNombreCli" HorizontalAlignment="Left" Margin="236,381,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>

@@ -680,7 +680,7 @@ namespace Modelo
                          nombre_profesional = Convert.ToString(fila["NOMBRE_PRO"]),
                          tipo = "Visita",
                          fecha = Convert.ToDateTime(fila["FECHA"]),
-                         ubicacion = Convert.ToString(fila["UBICACION"])+", "+Convert.ToString(fila["COMUNA"])
+                         ubicacion = Convert.ToString(fila["UBICACION"])+", \n"+Convert.ToString(fila["COMUNA"])
                      }).ToList());
 
             //---Tipo: Capacitacion---

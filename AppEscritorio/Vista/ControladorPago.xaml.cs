@@ -186,7 +186,8 @@ namespace Vista
                 fecha = DateTime.Now,
                 CLIENTE_rut = cliente.rut
             };
-            notificacion.guardar();
+            Ctrl.reportarAtraso(notificacion);
+            MessageBox.Show(Ctrl.mensaje);
         }
     }
 }

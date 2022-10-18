@@ -10,7 +10,7 @@
         ResizeMode="CanMinimize" Icon="Imgs/logo.png">
     <Grid Margin="0,0,-8,5">
         <mah:Tile x:Name="ACTIVIDAD_" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="1026" Height="67" Foreground="#FF111010" FontFamily="Segoe UI Emoji" FontWeight="Bold" Background="#8079e5">
-            <Image x:Name="image" Height="57" Width="100" Source="Imgs/logo.png"/>
+            <TextBlock FontFamily="MS Gothic" FontSize="48" Foreground="White">Control de Pagos</TextBlock>
         </mah:Tile>
         <!--Información Barra Superior-->
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="90" Margin="26,72,0,0" Stroke="Black" VerticalAlignment="Top" Width="967"/>

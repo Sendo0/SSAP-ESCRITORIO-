@@ -48,6 +48,7 @@ namespace Vista
             //Inicializar Página
             ctr = ctrl;
             txtBienvenido.Text = "\n"+ctr.admin.nombre + "\nBienvenido a SSAP";
+            cbxProfesional.ItemsSource = Profesional.todos();
             recargarTablaUsuarios();
         }
 
@@ -204,6 +205,7 @@ namespace Vista
             Button boton = (Button)sender;
             Ctrl.estadoUsuario(Int32.Parse(boton.Tag.ToString()));
             recargarTablaUsuarios();
+            MessageBox.Show(Ctrl.mensaje);
             txtMensaje.Text = Ctrl.mensaje;
         }
 
@@ -246,6 +248,7 @@ namespace Vista
             pichart1.Series = series;
             TablaReportes();
         }
+        
         public void TablaReportes()
         {
             ReporteTotal.Children.Clear();
@@ -302,7 +305,7 @@ namespace Vista
         private void buscarActividad(object sender, RoutedEventArgs e)
         {
             act_tblActividades.Children.Clear();
-            foreach (Actividad actividad in Actividad.obtener(rutProfesional.Text))
+            foreach (Actividad actividad in Actividad.obtener(cbxProfesional.SelectedValue.ToString()))
             {
                 //Crear un objeto donde se stackearán los datos
                 StackPanel fila = new StackPanel();
@@ -323,7 +326,7 @@ namespace Vista
                 profesional.Width = 150;
                 tipo.Width = 150;
                 fecha.Width = 150;
-                ubicacion.Width = 150;
+                ubicacion.Width = 170;
 
                 profesional.FontSize = 16;
                 tipo.FontSize = 16;
@@ -390,22 +393,6 @@ namespace Vista
         private void MenuReporte_MouseEnter(object sender, MouseEventArgs e)
         {
             menuReporte.Background = new SolidColorBrush(Color.FromRgb(156, 149, 255));
-        }
-
-        //----Validar--------
-
-        private void rutProfesional_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (Validar.noVacio(rutProfesional.Text) && Validar.rutValido(rutProfesional.Text))
-            {
-                errorRutPro.Text = Validar.mensaje;
-                btnBuscarProf.IsEnabled = true;
-            }
-            else
-            {
-                errorRutPro.Text = Validar.mensaje;
-                btnBuscarProf.IsEnabled = false;
-            }
         }
     }
 }

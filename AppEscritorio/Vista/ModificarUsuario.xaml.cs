@@ -109,6 +109,7 @@ namespace Vista
 
         private void secuenciaCerrar()
         {
+            MessageBox.Show(Ctrl.mensaje);
             menu.txtMensaje.Text = Ctrl.mensaje;
             menu.recargarTablaUsuarios();
             menu.IsEnabled = true;
