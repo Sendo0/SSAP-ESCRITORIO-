@@ -188,3 +188,4 @@ C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.csp
 C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.exe
 C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Vista\obj\Debug\Vista.pdb
+C:\Users\Wilo\Desktop\Portafolio\SSAP_Escritorio\AppEscritorio\Vista\obj\Debug\Vista.csproj.SuggestedBindingRedirects.cache
