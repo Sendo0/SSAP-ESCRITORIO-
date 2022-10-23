@@ -28,3 +28,13 @@ C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Cont
 C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
 C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.dll
 C:\Users\garab\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Controlador.dll
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Modelo.dll
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.dll
+C:\Users\Daniel\Desktop\SSAP-ESCRITORIO-\AppEscritorio\Controlador\obj\Debug\Controlador.pdb
