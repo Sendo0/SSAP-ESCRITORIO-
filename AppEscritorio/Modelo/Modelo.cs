@@ -697,7 +697,7 @@ namespace Modelo
                          nombre_profesional = Convert.ToString(fila["NOMBRE_ENCARGADO"]),
                          tipo = "Capacitacion",
                          fecha = Convert.ToDateTime(fila["FECHA_CAPACITACION"]),
-                         ubicacion = Convert.ToString(fila["UBICACION"]) + ", \n" + Convert.ToString(fila["COMUNA"])
+                         ubicacion = Convert.ToString(fila["UBICACION"]) + ", " + Convert.ToString(fila["COMUNA"])
                      }).ToList());
 
             //---Tipo: Asesoria---
