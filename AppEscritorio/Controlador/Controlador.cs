@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Controlador
 {
@@ -52,9 +54,15 @@ namespace Controlador
                 return null;
             }
             Usuario usuario = Usuario.filtro_id(administrador.id_usuario);
-            if (usuario.contraseña == password & usuario.estado)
+            using (SHA512 sha512 = new SHA512Managed())
             {
-                return new Ctrl{logueado=usuario, admin=administrador};
+                var passSalt = Encoding.UTF8.GetBytes(password+"0vKZv0F75*jw");
+                var hash = sha512.ComputeHash(passSalt);
+                var hashPass = BitConverter.ToString(hash).Replace("-","");
+                if (usuario.contraseña == hashPass & usuario.estado)
+                {
+                    return new Ctrl { logueado = usuario, admin = administrador };
+                }
             }
             return null;
         }
