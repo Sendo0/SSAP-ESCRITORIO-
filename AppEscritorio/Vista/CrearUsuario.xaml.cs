@@ -117,29 +117,34 @@ namespace Vista
         {
             if (valRut && valPass && valRepPass && cbxComuna.SelectedItem != null && valDireccion)
             {
+                Mouse.OverrideCursor = Cursors.Wait;
                 Usuario nuevoUsr = new Usuario { contraseña = txbPassword.Password, tipo = cbxTipo.Text, id_comuna = Int32.Parse(cbxComuna.SelectedValue.ToString()), direccion = txbDireccion.Text };
-                if (cbxTipo.SelectedIndex == 0 && valNombreEmpresa && valRubroEmpresa && valCantTr && valCosto)
+                if (cbxTipo.SelectedIndex == 0 && valNombreEmpresa && valRubroEmpresa && valCantTr && valCosto && cbxProfesional.SelectedIndex != -1)
                 {
                     Cliente nuevoCli = new Cliente { rut = txbRut.Text, nombre_empresa = txbNombreEmpresa.Text, rubro_empresa = txbRubroEmpresa.Text, cant_trabajadores = Int32.Parse(txbCantidadTrabajadores.Text) };
                     Contrato nuevoCon = new Contrato { costo_base = Int32.Parse(txbCosto.Text), fecha_firma = dteFirma.DisplayDate, ultimo_pago = dteFirma.DisplayDate, CLIENTE_rut = nuevoCli.rut, PROFESIONAL_rut = cbxProfesional.SelectedValue.ToString() };
                     Ctrl.crearUsuario(nuevoUsr, nuevoCli, nuevoCon);
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     secuenciaCerrar();
                 }
                 else if (cbxTipo.SelectedIndex == 1 && valNombreProfesional)
                 {
                     Profesional nuevoPro = new Profesional { rut = txbRut.Text, nombre = txbNombreProfesional.Text };
                     Ctrl.crearUsuario(nuevoUsr, nuevoPro);
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     secuenciaCerrar();
                 }
                 else if (cbxTipo.SelectedIndex == 2 && valNombreAdministrador)
                 {
                     Administrador nuevoAdm = new Administrador { rut = txbRut.Text, nombre = txbNombreAdministrador.Text };
                     Ctrl.crearUsuario(nuevoUsr, nuevoAdm);
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     secuenciaCerrar();
                 }
                 else
                 {
                     errorFormulario.Text = "Error de formulario";
+                    Mouse.OverrideCursor = Cursors.Arrow;
                 }
             }
             else

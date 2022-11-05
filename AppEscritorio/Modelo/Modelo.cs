@@ -16,7 +16,7 @@ namespace Modelo
         public static String connexion_String { get; set; }
         static Variables()
         {
-            connexion_String =  "DATA SOURCE = localhost:1521/XE; PASSWORD=123456;USER ID = SSAP";      
+            connexion_String =  "DATA SOURCE = localhost:1522/ORCL1; PASSWORD=123456;USER ID = SSAP";      
         }
     }
 
@@ -680,7 +680,7 @@ namespace Modelo
                          nombre_profesional = Convert.ToString(fila["NOMBRE_PRO"]),
                          tipo = "Visita",
                          fecha = Convert.ToDateTime(fila["FECHA"]),
-                         ubicacion = Convert.ToString(fila["UBICACION"])+", \n"+Convert.ToString(fila["COMUNA"])
+                         ubicacion = Convert.ToString(fila["UBICACION"])+", "+Convert.ToString(fila["COMUNA"])
                      }).ToList());
 
             //---Tipo: Capacitacion---
@@ -697,7 +697,7 @@ namespace Modelo
                          nombre_profesional = Convert.ToString(fila["NOMBRE_ENCARGADO"]),
                          tipo = "Capacitacion",
                          fecha = Convert.ToDateTime(fila["FECHA_CAPACITACION"]),
-                         ubicacion = Convert.ToString(fila["UBICACION"]) + ", \n" + Convert.ToString(fila["COMUNA"])
+                         ubicacion = Convert.ToString(fila["UBICACION"]) + ", " + Convert.ToString(fila["COMUNA"])
                      }).ToList());
 
             //---Tipo: Asesoria---

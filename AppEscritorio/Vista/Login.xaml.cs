@@ -39,7 +39,9 @@ namespace Vista
 
         private void funcion_loguear(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             Ctrl ctrl = Ctrl.login(tbxRut.Text, tbxPassword.Password);
+            Mouse.OverrideCursor = Cursors.Arrow;
             if (!valPass || !valRut)
             {
                 lblError.Text = "Error de formulario";

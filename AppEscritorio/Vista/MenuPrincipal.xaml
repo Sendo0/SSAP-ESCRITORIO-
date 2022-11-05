@@ -109,12 +109,12 @@
                     </StackPanel>
                 </TabItem.Header>
                 <!--Ventana-->
-                <Grid Background="AliceBlue">
+                <Grid Background="AliceBlue" Loaded="recargarCboxProfesional">
                     <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" FontSize="35" FontWeight="Bold" Text="Actividades Profesionales" TextAlignment="Center" VerticalAlignment="Top" Height="40" Width="718" FontFamily="MS Gothic"/>
                     <Border BorderBrush="#33958D8D" BorderThickness="2" CornerRadius="9" Margin="10,32,10,38" Background="#33958D8D">
                         <Grid>
                             <Button x:Name="btnBuscarProf" Content="Buscar" HorizontalAlignment="Left" Margin="361,62,0,0" VerticalAlignment="Top" Width="332" Background="#FF8079E5" Foreground="White" Height="39" Click="buscarActividad"/>
-                            <ComboBox x:Name="cbxProfesional" HorizontalAlignment="Left" Margin="27,63,0,0" VerticalAlignment="Top" Width="329" Height="38" DisplayMemberPath="nombre" SelectedValuePath="rut" FontFamily="MS Gothic" FontSize="16" SelectedIndex="0"/>
+                            <ComboBox x:Name="cbxProfesional" HorizontalAlignment="Left" Margin="27,63,0,0" VerticalAlignment="Top" Width="329" Height="38" DisplayMemberPath="nombre" SelectedValuePath="rut" FontFamily="MS Gothic" FontSize="16" SelectedIndex="0" mah:TextBoxHelper.Watermark="Seleccionar Profesional"/>
                             <Border BorderBrush="Black" BorderThickness="1" Margin="27,106,21,346">
                                 <StackPanel Orientation="Horizontal" Background="#FFFBFAFA">
                                     <TextBlock Text="Profesional" FontFamily="MS Gothic" FontWeight="Bold" FontSize="16" Width="150px" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
