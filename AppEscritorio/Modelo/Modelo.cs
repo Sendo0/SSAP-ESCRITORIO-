@@ -62,6 +62,7 @@ namespace Modelo
             cmd.Parameters.Add("IdComuna", OracleDbType.Int32).Value = id_comuna;
             cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
             cmd.Parameters.Add("estado", OracleDbType.Int32).Value = 0;
+            cmd.Parameters.Add("hashear", OracleDbType.Boolean).Value = false;
 
             //Ejecutar comando
             conn.Open();
@@ -82,6 +83,7 @@ namespace Modelo
             cmd.Parameters.Add("IdComuna", OracleDbType.Int32).Value = id_comuna;
             cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
             cmd.Parameters.Add("estado", OracleDbType.Int32).Value = 1;
+            cmd.Parameters.Add("hashear", OracleDbType.Boolean).Value = false;
 
             //Ejecutar comando
             conn.Open();
@@ -102,6 +104,7 @@ namespace Modelo
             cmd.Parameters.Add("IdComuna", OracleDbType.Int32).Value = id_comuna;
             cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
             cmd.Parameters.Add("estado", OracleDbType.Int32).Value = estado;
+            cmd.Parameters.Add("hashear", OracleDbType.Boolean).Value = true;
 
             //Ejecutar comando
             conn.Open();
