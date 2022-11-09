@@ -77,5 +77,17 @@ namespace Controlador
             }
             return true;
         }
+
+        public static bool mail(string entrada)
+        {
+            String patron = @"^[\w-\.]+@([\w-\.]+)$";
+            Regex regex = new Regex(patron);
+            if (!regex.IsMatch(entrada))
+            {
+                mensaje = "Ingrese un mail válido";
+                return false;
+            }
+            return true;
+        }
     }
 }

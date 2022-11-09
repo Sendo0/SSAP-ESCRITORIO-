@@ -12,79 +12,82 @@
         <Border BorderBrush="#33958D8D" BorderThickness="2" CornerRadius="9" Margin="45,10,45,10" Background="#33958D8D">
             <Grid>
                 <ScrollViewer x:Name="scrlForm" Margin="0,0,0,67" >
-                    <Grid x:Name="formUsuario" Height="675">
+                    <Grid x:Name="formUsuario" Height="750">
                         <TextBlock x:Name="txtBienvenido" Text="Crear Usuario" FontFamily="MS Gothic" FontSize="40" FontWeight="Bold" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,0,-2,0"/>
                         <!--Labels-->
                         <Label Content="Rut:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
                         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
                         <Label Content="Repetir Contraseña:" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                        <Label Content="Comuna:" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                        <Label Content="Direccion:" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                        <Label Content="Tipo Usuario:" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                        <Label Content="E-mail:" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                        <Label Content="Comuna:" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                        <Label Content="Direccion:" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                        <Label Content="Tipo Usuario:" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
 
                         <!--Textboxes-->
                         <TextBox x:Name="txbRut" HorizontalAlignment="Left" Height="30" Margin="236,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="12.345.678-9" FontSize="16" TextChanged="txbRut_TextChanged"/>
                         <PasswordBox x:Name="txbPassword" HorizontalAlignment="Left" Margin="236,106,0,0" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" FontSize="16" mah:TextBoxHelper.Watermark="********" Height="30" PasswordChanged="txbPassword_PasswordChanged"/>
                         <PasswordBox x:Name="txbRepPassword" HorizontalAlignment="Left" Margin="236,155,0,0" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" FontSize="16" mah:TextBoxHelper.Watermark="********" Height="30" PasswordChanged="txbRepPassword_PasswordChanged"/>
-                        <ComboBox x:Name="cbxComuna" HorizontalAlignment="Left" Margin="236,204,0,0" VerticalAlignment="Top" Width="246" Height="31"  DisplayMemberPath="nombre_comuna" SelectedValuePath="id_comuna"/>
-                        <TextBox x:Name="txbDireccion" HorizontalAlignment="Left" Height="30" Margin="236,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" mah:TextBoxHelper.Watermark="Antonio Varas 666" FontFamily="MS Gothic" FontSize="16" TextChanged="txbDireccion_TextChanged"/>
+                        <TextBox x:Name="txbMail" HorizontalAlignment="Left" Height="30" Margin="236,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="mail@ejemplo.com" FontSize="16" TextChanged="txbMail_TextChanged"/>
+                        <ComboBox x:Name="cbxComuna" HorizontalAlignment="Left" Margin="236,252,0,0" VerticalAlignment="Top" Width="246" Height="31"  DisplayMemberPath="nombre_comuna" SelectedValuePath="id_comuna"/>
+                        <TextBox x:Name="txbDireccion" HorizontalAlignment="Left" Height="30" Margin="236,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" mah:TextBoxHelper.Watermark="Antonio Varas 666" FontFamily="MS Gothic" FontSize="16" TextChanged="txbDireccion_TextChanged"/>
 
                         <!-- Errores -->
 
                         <TextBlock x:Name="errorRut" HorizontalAlignment="Left" Margin="236,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
                         <TextBlock x:Name="errorPassword" HorizontalAlignment="Left" Margin="236,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
                         <TextBlock x:Name="errorRepPassword" HorizontalAlignment="Left" Margin="236,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
-                        <TextBlock x:Name="errorDireccion" HorizontalAlignment="Left" Margin="236,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                        <TextBlock x:Name="errorMail" HorizontalAlignment="Left" Margin="236,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                        <TextBlock x:Name="errorDireccion" HorizontalAlignment="Left" Margin="236,332,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
 
                         <Grid x:Name="formCliente">
                             <!-- Labels -->
-                            <Label Content="Nombre Empresa:" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                            <Label Content="Rubro Empresa:" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                            <Label Content="Cantidad Trabajadores:" HorizontalAlignment="Left" Margin="10,449,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="226"/>
+                            <Label Content="Nombre Empresa:" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                            <Label Content="Rubro Empresa:" HorizontalAlignment="Left" Margin="12,449,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="222"/>
+                            <Label Content="Cantidad Trabajadores:" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="226"/>
 
                             <!-- Textboxes -->
-                            <TextBox x:Name="txbNombreEmpresa" HorizontalAlignment="Left" Height="30" Margin="236,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="DuocUC." FontSize="16" TextChanged="txbNombreEmpresa_TextChanged"/>
-                            <TextBox x:Name="txbRubroEmpresa" HorizontalAlignment="Left" Height="30" Margin="236,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="Minería" FontSize="16" TextChanged="txbRubroEmpresa_TextChanged"/>
-                            <TextBox x:Name="txbCantidadTrabajadores" HorizontalAlignment="Left" Height="30" Margin="236,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="3" FontSize="16" TextChanged="txbCantidadTrabajadores_TextChanged"/>
+                            <TextBox x:Name="txbNombreEmpresa" HorizontalAlignment="Left" Height="30" Margin="236,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="DuocUC." FontSize="16" TextChanged="txbNombreEmpresa_TextChanged"/>
+                            <TextBox x:Name="txbRubroEmpresa" HorizontalAlignment="Left" Height="30" Margin="236,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="Minería" FontSize="16" TextChanged="txbRubroEmpresa_TextChanged"/>
+                            <TextBox x:Name="txbCantidadTrabajadores" HorizontalAlignment="Left" Height="30" Margin="236,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="3" FontSize="16" TextChanged="txbCantidadTrabajadores_TextChanged"/>
 
                             <!--- Contrato -->
-                            <Separator HorizontalAlignment="Left" Height="20" Margin="0,498,0,0" VerticalAlignment="Top" Width="486"/>
+                            <Separator HorizontalAlignment="Left" Height="20" Margin="-4,535,0,0" VerticalAlignment="Top" Width="486"/>
                             <!-- Labels -->
 
-                            <TextBlock Text="Definir Contrato" FontFamily="MS Gothic" FontSize="25" FontWeight="Bold" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,511,0,140"/>
-                            <Label Content="Costo Base ($CLP):" HorizontalAlignment="Left" Margin="10,540,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                            <Label Content="Fecha Firma:" HorizontalAlignment="Left" Margin="10,589,0,-4" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
-                            <Label Content="Profesional:" HorizontalAlignment="Left" Margin="10,638,0,-53" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                            <TextBlock Text="Definir Contrato" FontFamily="MS Gothic" FontSize="25" FontWeight="Bold" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,549,0,102"/>
+                            <Label Content="Costo Base ($CLP):" HorizontalAlignment="Left" Margin="10,589,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                            <Label Content="Fecha Firma:" HorizontalAlignment="Left" Margin="10,638,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                            <Label Content="Profesional:" HorizontalAlignment="Left" Margin="10,688,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
                             <!-- Textboxes -->
 
-                            <TextBox x:Name="txbCosto" HorizontalAlignment="Left" Height="30" Margin="236,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="200000" FontSize="16" TextChanged="txbCosto_TextChanged"/>
-                            <DatePicker x:Name="dteFirma" HorizontalAlignment="Left" Margin="236,589,0,-4" VerticalAlignment="Top" Width="246" Height="30"/>
-                            <ComboBox x:Name="cbxProfesional" HorizontalAlignment="Left" Margin="236,638,0,-53" VerticalAlignment="Top" Width="246" Height="30" DisplayMemberPath="nombre" SelectedValuePath="rut" FontFamily="MS Gothic" FontSize="16" SelectedIndex="0"/>
+                            <TextBox x:Name="txbCosto" HorizontalAlignment="Left" Height="30" Margin="236,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="200000" FontSize="16" TextChanged="txbCosto_TextChanged"/>
+                            <DatePicker x:Name="dteFirma" HorizontalAlignment="Left" Margin="236,638,0,0" VerticalAlignment="Top" Width="246" Height="30"/>
+                            <ComboBox x:Name="cbxProfesional" HorizontalAlignment="Left" Margin="236,688,0,0" VerticalAlignment="Top" Width="246" Height="30" DisplayMemberPath="nombre" SelectedValuePath="rut" FontFamily="MS Gothic" FontSize="16" SelectedIndex="0"/>
 
                             <!-- Errores -->
-                            <TextBlock x:Name="errorNombreCli" HorizontalAlignment="Left" Margin="236,381,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
-                            <TextBlock x:Name="errorRubro" HorizontalAlignment="Left" Margin="236,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
-                            <TextBlock x:Name="errorCantidad" HorizontalAlignment="Left" Margin="236,484,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
-                            <TextBlock x:Name="errorPrecio" HorizontalAlignment="Left" Margin="236,570,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <TextBlock x:Name="errorNombreCli" HorizontalAlignment="Left" Margin="236,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <TextBlock x:Name="errorRubro" HorizontalAlignment="Left" Margin="236,479,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <TextBlock x:Name="errorCantidad" HorizontalAlignment="Left" Margin="236,521,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <TextBlock x:Name="errorPrecio" HorizontalAlignment="Left" Margin="236,619,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
                         </Grid>
 
                         <Grid x:Name="formProfesional">
-                            <Label Content="Nombre Profesional:" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                            <Label Content="Nombre Profesional:" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
 
-                            <TextBox x:Name="txbNombreProfesional" HorizontalAlignment="Left" Height="30" Margin="236,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="Profesional Falso" FontSize="16" TextChanged="txbNombreProfesional_TextChanged"/>
+                            <TextBox x:Name="txbNombreProfesional" HorizontalAlignment="Left" Height="30" Margin="236,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="Profesional Falso" FontSize="16" TextChanged="txbNombreProfesional_TextChanged"/>
 
-                            <TextBlock x:Name="errorNombrePro" HorizontalAlignment="Left" Margin="236,381,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <TextBlock x:Name="errorNombrePro" HorizontalAlignment="Left" Margin="236,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
                         </Grid>
 
                         <Grid x:Name="formAdministrador">
-                            <Label Content="Nombre Administrador:" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
+                            <Label Content="Nombre Administrador:" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" FontFamily="MS Gothic" FontSize="20" Width="221"/>
 
-                            <TextBox x:Name="txbNombreAdministrador" HorizontalAlignment="Left" Height="30" Margin="236,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="Admin Falso" FontSize="16" TextChanged="txbNombreAdministrador_TextChanged"/>
+                            <TextBox x:Name="txbNombreAdministrador" HorizontalAlignment="Left" Height="30" Margin="236,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" FontFamily="MS Gothic" mah:TextBoxHelper.Watermark="Admin Falso" FontSize="16" TextChanged="txbNombreAdministrador_TextChanged"/>
 
-                            <TextBlock x:Name="errorNombreAdm" HorizontalAlignment="Left" Margin="236,381,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
+                            <TextBlock x:Name="errorNombreAdm" HorizontalAlignment="Left" Margin="236,430,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="246" Foreground="Red" FontFamily="MS Gothic" FontSize="14"/>
                         </Grid>
 
-                        <ComboBox x:Name="cbxTipo" HorizontalAlignment="Left" Margin="236,302,0,0" VerticalAlignment="Top" Width="246" Height="30" SelectionChanged="cambioTipo" SelectedIndex="0">
+                        <ComboBox x:Name="cbxTipo" HorizontalAlignment="Left" Margin="236,353,0,0" VerticalAlignment="Top" Width="246" Height="30" SelectionChanged="cambioTipo" SelectedIndex="0">
                             <ComboBoxItem Content="CLIENTE" FontSize="16" FontFamily="MS Gothic"/>
                             <ComboBoxItem Content="PROFESIONAL" FontSize="16" FontFamily="MS Gothic"/>
                             <ComboBoxItem Content="ADMINISTRADOR" FontSize="16" FontFamily="MS Gothic"/>

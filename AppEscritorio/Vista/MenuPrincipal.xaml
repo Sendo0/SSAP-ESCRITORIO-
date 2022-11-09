@@ -71,7 +71,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Imgs/1069229.png" Margin="0,10" Width="83"/>
-                        <TextBlock Width="182" FontFamily="MS Gothic" FontWeight="Bold" FontSize="22" Foreground="White" Margin="0,48,0,0" Height="21" VerticalAlignment="Top"><Run FontSize="20" Text="   Crear Reportes"/></TextBlock>
+                        <TextBlock Width="182" FontFamily="MS Gothic" FontWeight="Bold" FontSize="22" Foreground="White" Margin="0,48,0,0" Height="21" VerticalAlignment="Top"><Run FontSize="20" Text="   Ver Reportes"/></TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="AliceBlue">

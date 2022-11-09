@@ -24,7 +24,7 @@ namespace Vista
     /// </summary>
     public partial class CrearUsuario : MetroWindow
     {
-        private bool valRut = false, valPass = false,valRepPass = false, valDireccion = false, 
+        private bool valRut = false, valPass = false,valRepPass = false, valDireccion = false, valMail = false, 
             valNombreEmpresa = false, valRubroEmpresa = false, valCantTr = false, valCosto = false,
             valNombreProfesional = false, valNombreAdministrador = false;
         MenuPrincipal menu;
@@ -115,10 +115,10 @@ namespace Vista
 
         private void crearUsuario(object sender, RoutedEventArgs e)
         {
-            if (valRut && valPass && valRepPass && cbxComuna.SelectedItem != null && valDireccion)
+            if (valRut && valPass && valRepPass && cbxComuna.SelectedItem != null && valDireccion && valMail)
             {
                 Mouse.OverrideCursor = Cursors.Wait;
-                Usuario nuevoUsr = new Usuario { contraseña = txbPassword.Password, tipo = cbxTipo.Text, id_comuna = Int32.Parse(cbxComuna.SelectedValue.ToString()), direccion = txbDireccion.Text };
+                Usuario nuevoUsr = new Usuario { contraseña = txbPassword.Password, tipo = cbxTipo.Text, id_comuna = Int32.Parse(cbxComuna.SelectedValue.ToString()), direccion = txbDireccion.Text, correo = txbMail.Text };
                 if (cbxTipo.SelectedIndex == 0 && valNombreEmpresa && valRubroEmpresa && valCantTr && valCosto && cbxProfesional.SelectedIndex != -1)
                 {
                     Cliente nuevoCli = new Cliente { rut = txbRut.Text, nombre_empresa = txbNombreEmpresa.Text, rubro_empresa = txbRubroEmpresa.Text, cant_trabajadores = Int32.Parse(txbCantidadTrabajadores.Text) };
@@ -214,6 +214,21 @@ namespace Vista
             {
                 errorDireccion.Text = Validar.mensaje;
                 valDireccion = false;
+            }
+        }
+
+        private void txbMail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String mail = txbMail.Text;
+            if(Validar.noVacio(mail) && Validar.maxLength(mail,150) && Validar.mail(mail))
+            {
+                errorMail.Text = Validar.mensaje;
+                valMail = true;
+            }
+            else
+            {
+                errorMail.Text = Validar.mensaje;
+                valMail = false;
             }
         }
 
