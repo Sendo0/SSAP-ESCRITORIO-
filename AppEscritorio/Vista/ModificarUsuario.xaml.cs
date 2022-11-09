@@ -24,7 +24,7 @@ namespace Vista
     /// </summary>
     public partial class ModificarUsuario : MetroWindow
     {
-        private bool valPass = false, valRepPass = false, valDireccion = true,
+        private bool valPass = false, valRepPass = false, valDireccion = true, valMail = true,
             valNombreEmpresa = true, valRubroEmpresa = true, valCantTr = true,
             valNombreProfesional = true, valNombreAdministrador = true;
         MenuPrincipal menu;
@@ -40,6 +40,7 @@ namespace Vista
             usuario = Usuario.filtro_id(id_usuario);
 
             //Carga de datos
+            txbMail.Text = usuario.correo;
             txbDireccion.Text = usuario.direccion;
             if (usuario.tipo == "ADMINISTRADOR")
             {
@@ -47,6 +48,7 @@ namespace Vista
                 txbRut.Text = administrador.rut;
                 txbNombreAdministrador.Text = administrador.nombre;
                 cbxTipo.SelectedIndex = 2;
+                formUsuario.Height = 440;
             }
             if (usuario.tipo == "PROFESIONAL")
             {
@@ -54,6 +56,7 @@ namespace Vista
                 txbRut.Text = profesional.rut;
                 txbNombreProfesional.Text = profesional.nombre;
                 cbxTipo.SelectedIndex = 1;
+                formUsuario.Height = 440;
             }
             if (usuario.tipo == "CLIENTE")
             {
@@ -118,11 +121,12 @@ namespace Vista
 
         private void modificarUsuario(object sender, RoutedEventArgs e)
         {
-            if(valPass && valRepPass && valDireccion)
+            if(valPass && valRepPass && valDireccion && valMail)
             {
                 usuario.direccion = txbDireccion.Text;
                 usuario.contraseña = txbPassword.Password;
                 usuario.id_comuna = Int32.Parse(cbxComuna.SelectedValue.ToString());
+                usuario.correo = txbMail.Text;
                 if (cbxTipo.SelectedIndex == 0 && valNombreEmpresa && valRubroEmpresa && valCantTr)
                 {
                     cliente.nombre_empresa = txbNombreEmpresa.Text;
@@ -248,6 +252,21 @@ namespace Vista
             {
                 errorDireccion.Text = Validar.mensaje;
                 valDireccion = false;
+            }
+        }
+
+        private void txbMail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String mail = txbMail.Text;
+            if (Validar.noVacio(mail) && Validar.maxLength(mail, 150) && Validar.mail(mail))
+            {
+                errorMail.Text = Validar.mensaje;
+                valMail = true;
+            }
+            else
+            {
+                errorMail.Text = Validar.mensaje;
+                valMail = false;
             }
         }
 

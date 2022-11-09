@@ -57,18 +57,21 @@ namespace Vista
                 formCliente.Visibility = Visibility.Visible;
                 formAdministrador.Visibility = Visibility.Hidden;
                 formProfesional.Visibility = Visibility.Hidden;
+                formUsuario.Height = 750;
             }
             if(cbxTipo.SelectedIndex == 1)
             {
                 formCliente.Visibility = Visibility.Hidden;
                 formAdministrador.Visibility = Visibility.Hidden;
                 formProfesional.Visibility = Visibility.Visible;
+                formUsuario.Height = 470;
             }
             if (cbxTipo.SelectedIndex == 2)
             {
                 formCliente.Visibility = Visibility.Hidden;
                 formAdministrador.Visibility = Visibility.Visible;
                 formProfesional.Visibility = Visibility.Hidden;
+                formUsuario.Height = 470;
             }
         }
 
