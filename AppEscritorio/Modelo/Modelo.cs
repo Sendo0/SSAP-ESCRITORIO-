@@ -30,6 +30,7 @@ namespace Modelo
         public int id_comuna { get; set; }
         public String direccion { get; set; }
         public bool estado { get; set; }
+        public String correo { get; set; }
         public void guardar()
         { 
             //Definir Variables
@@ -42,6 +43,7 @@ namespace Modelo
             cmd.Parameters.Add("tipo", OracleDbType.Varchar2).Value = tipo;
             cmd.Parameters.Add("id_comu", OracleDbType.Int32).Value = id_comuna;
             cmd.Parameters.Add("direc", OracleDbType.Varchar2).Value = direccion;
+            cmd.Parameters.Add("correo_v", OracleDbType.Varchar2).Value = correo;
 
             //Ejecutar comando
             conn.Open();
@@ -63,6 +65,7 @@ namespace Modelo
             cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
             cmd.Parameters.Add("estado", OracleDbType.Int32).Value = 0;
             cmd.Parameters.Add("hashear", OracleDbType.Boolean).Value = false;
+            cmd.Parameters.Add("correo", OracleDbType.Varchar2).Value = correo;
 
             //Ejecutar comando
             conn.Open();
@@ -84,6 +87,7 @@ namespace Modelo
             cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
             cmd.Parameters.Add("estado", OracleDbType.Int32).Value = 1;
             cmd.Parameters.Add("hashear", OracleDbType.Boolean).Value = false;
+            cmd.Parameters.Add("correo", OracleDbType.Varchar2).Value = correo;
 
             //Ejecutar comando
             conn.Open();
@@ -105,6 +109,7 @@ namespace Modelo
             cmd.Parameters.Add("direccion", OracleDbType.Varchar2).Value = direccion;
             cmd.Parameters.Add("estado", OracleDbType.Int32).Value = estado;
             cmd.Parameters.Add("hashear", OracleDbType.Boolean).Value = true;
+            cmd.Parameters.Add("correo", OracleDbType.Varchar2).Value = correo;
 
             //Ejecutar comando
             conn.Open();
@@ -135,7 +140,8 @@ namespace Modelo
                             tipo = Convert.ToString(fila["TIPO"]),
                             id_comuna = Convert.ToInt32(fila["ID_COMUNA"]),
                             direccion = Convert.ToString(fila["DIRECCION"]),
-                            estado = Convert.ToBoolean(fila["ESTADO"])
+                            estado = Convert.ToBoolean(fila["ESTADO"]),
+                            correo = Convert.ToString(fila["CORREO"])
                         }).ToList();
             conn.Close();
             return usuarios;
@@ -157,7 +163,7 @@ namespace Modelo
             {
                 while (r.Read())
                 {
-                    Usuario usuario = new Usuario { id_usuario = r.GetInt32(0), contraseña = r.GetString(1), tipo = r.GetString(2), id_comuna = r.GetInt32(3), direccion = r.GetString(4), estado = r.GetBoolean(5) };
+                    Usuario usuario = new Usuario { id_usuario = r.GetInt32(0), contraseña = r.GetString(1), tipo = r.GetString(2), id_comuna = r.GetInt32(3), direccion = r.GetString(4), estado = r.GetBoolean(5), correo = r.GetString(6) };
                     conn.Close();
                     return usuario;
                 }
@@ -404,6 +410,7 @@ namespace Modelo
         public String nombre_empresa { get; set; }
         public String rubro_empresa { get; set; }
         public int cant_trabajadores { get; set; }
+        public int cont_solicitudes { get; set; }
         public void guardar()
         {
             //Definir Variables
@@ -437,6 +444,7 @@ namespace Modelo
             cmd.Parameters.Add("nombre", OracleDbType.Varchar2).Value = nombre_empresa;
             cmd.Parameters.Add("rubro", OracleDbType.Varchar2).Value = rubro_empresa;
             cmd.Parameters.Add("c_trab", OracleDbType.Int32).Value = cant_trabajadores;
+            cmd.Parameters.Add("c_solicitud", OracleDbType.Int32).Value = cont_solicitudes;
 
             //Ejecutar comando
             conn.Open();
@@ -466,7 +474,8 @@ namespace Modelo
                          rut = Convert.ToString(fila["RUT_CLIENTE"]),
                          nombre_empresa = Convert.ToString(fila["NOMBRE_EMPRESA"]),
                          rubro_empresa = Convert.ToString(fila["RUBRO_EMPRESA"]),
-                         cant_trabajadores = Convert.ToInt32(fila["CANT_TRABAJADORES"])
+                         cant_trabajadores = Convert.ToInt32(fila["CANT_TRABAJADORES"]),
+                         cont_solicitudes = Convert.ToInt32(fila["CONTADOR_SOLICITUD"])
                      }).ToList();
             conn.Close();
             return lista;
@@ -488,7 +497,7 @@ namespace Modelo
             {
                 while (r.Read())
                 {
-                    Cliente cliente = new Cliente { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre_empresa = r.GetString(2), rubro_empresa = r.GetString(3), cant_trabajadores = r.GetInt32(4) };
+                    Cliente cliente = new Cliente { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre_empresa = r.GetString(2), rubro_empresa = r.GetString(3), cant_trabajadores = r.GetInt32(4), cont_solicitudes = r.GetInt32(5) };
                     conn.Close();
                     return cliente;
                 }
@@ -512,7 +521,7 @@ namespace Modelo
             {
                 while (r.Read())
                 {
-                    Cliente cliente = new Cliente { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre_empresa = r.GetString(2), rubro_empresa = r.GetString(3), cant_trabajadores = r.GetInt32(4) };
+                    Cliente cliente = new Cliente { id_usuario = r.GetInt32(0), rut = r.GetString(1), nombre_empresa = r.GetString(2), rubro_empresa = r.GetString(3), cant_trabajadores = r.GetInt32(4), cont_solicitudes = r.GetInt32(5) };
                     conn.Close();
                     return cliente;
                 }
