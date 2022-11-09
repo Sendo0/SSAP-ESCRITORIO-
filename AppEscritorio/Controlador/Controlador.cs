@@ -161,7 +161,15 @@ namespace Controlador
         public static void reportarAtraso(Notificacion notificacion)
         {
             notificacion.guardar();
-            mensaje = "Notificación de atraso Enviada";
+            try
+            {
+                notificacion.mail();
+                mensaje = "Notificación de atraso Enviada";
+            }
+            catch
+            {
+                mensaje = "Se envió la notificación, pero es posible que el correo no se haya enviado correctamente.";
+            }
         }
     }
 }

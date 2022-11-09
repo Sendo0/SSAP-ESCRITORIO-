@@ -178,6 +178,8 @@ namespace Vista
         private void reportarAtraso(object sender, RoutedEventArgs e)
         {
             Button boton = (Button)sender;
+            boton.IsEnabled = false;
+            Mouse.OverrideCursor = Cursors.Wait;
             String fecha = Convert.ToDateTime(boton.Tag.ToString()).ToString("dd/MM/yyyy");
             Notificacion notificacion = new Notificacion
             {
@@ -187,6 +189,8 @@ namespace Vista
                 CLIENTE_rut = cliente.rut
             };
             Ctrl.reportarAtraso(notificacion);
+            Mouse.OverrideCursor = Cursors.Arrow;
+            boton.IsEnabled = true;
             MessageBox.Show(Ctrl.mensaje);
         }
     }

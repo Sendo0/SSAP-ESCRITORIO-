@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Net.Mail;
+using System.Net.NetworkInformation;
+using System.Net;
 
 namespace Modelo
 {
@@ -839,6 +842,34 @@ namespace Modelo
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+        public void mail()
+        {
+            // Inicializar Variables
+            Cliente cliente = Cliente.filtro_rut(CLIENTE_rut);
+            String dir_mail = Usuario.filtro_id(cliente.id_usuario).correo;
+
+            // Formatear Mail
+            MailMessage mail = new MailMessage();
+            mail.IsBodyHtml = true;
+            mail.From = new MailAddress("no-reply.nma@outlook.com");
+            mail.To.Add(new MailAddress(dir_mail));
+            mail.Subject = "Notificción SSAP | "+titulo;
+            mail.Body = "<center><h2>Nueva Notificación de SSAP: "+titulo+"</h2></center><hr><h4>" + descripcion + "</h4>";
+
+            // Enviar Mail
+            using(SmtpClient smtp = new SmtpClient())
+            {
+                smtp.Host = "smtp-mail.outlook.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                NetworkCredential credenciales = new NetworkCredential();
+                credenciales.UserName = "no-reply.nma@outlook.com";
+                credenciales.Password = "6SycSg82!28Z";
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = credenciales;
+                smtp.Send(mail);
+            }
         }
     }
 }
