@@ -147,8 +147,22 @@ namespace Controlador
             Usuario usuario = Usuario.filtro_id(id);
             if (usuario.estado)
             {
-                usuario.desactivar();
-                mensaje = "Usuario Deshabilitado";
+                if(usuario.tipo == "PROFESIONAL"){
+                    foreach(Usuario usr in Usuario.todos()){
+                        if(usr.tipo == "PROFESIONAL" && usr.estado && usr.id_usuario != usuario.id_usuario)
+                        {
+                            usuario.desactivar();
+                            mensaje = "Usuario Deshabilitado";
+                            break;
+                        }
+                        mensaje = "Error: Profesional no se puede deshabilitar, se necesita al menos un profesional en el sistema.";
+                    }
+                }
+                else
+                {
+                    usuario.desactivar();
+                    mensaje = "Usuario Deshabilitado";
+                }
             }
             else
             {

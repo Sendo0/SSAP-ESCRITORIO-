@@ -62,7 +62,7 @@
                     <ScrollViewer Margin="60,162,60,88">
                         <StackPanel x:Name="gu_tblUsuarios"/>
                     </ScrollViewer>
-                    <TextBlock x:Name="txtMensaje" HorizontalAlignment="Left" Margin="60,488,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="618" TextAlignment="Center" FontFamily="MS Gothic" FontSize="20"/>
+                    <TextBlock x:Name="txtMensaje" HorizontalAlignment="Left" Margin="60,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="618" TextAlignment="Center" FontFamily="MS Gothic" FontSize="20"/>
                 </Grid>
             </TabItem>
 
