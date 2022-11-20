@@ -202,11 +202,15 @@ namespace Vista
 
         private void estadoUsuario(object sender, RoutedEventArgs e)
         {
-            Button boton = (Button)sender;
-            Ctrl.estadoUsuario(Int32.Parse(boton.Tag.ToString()));
-            recargarTablaUsuarios();
-            MessageBox.Show(Ctrl.mensaje);
-            txtMensaje.Text = Ctrl.mensaje;
+            MessageBoxResult resultado = MessageBox.Show("¿Está seguro que quiere deshabilitar o habilitar este usuario?", "Deshabilitar/Habilitar", MessageBoxButton.YesNo);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                Button boton = (Button)sender;
+                Ctrl.estadoUsuario(Int32.Parse(boton.Tag.ToString()));
+                recargarTablaUsuarios();
+                MessageBox.Show(Ctrl.mensaje);
+                txtMensaje.Text = Ctrl.mensaje;
+            }
         }
 
         private void controlPagos(object sender, RoutedEventArgs e)
